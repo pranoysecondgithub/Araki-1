@@ -1,7 +1,7 @@
 TOKEN="OTUwNjgwMjkwMTgxOTEwNTI4.YiccAw.vRX_wLU9o11K5ZmDgC0jbZbaycs"
 OWNERS=['943571992722944041']
 support_link = "https://discord.gg/g7paCVqWfa"
-invite_link = "https://discord.com/api/oauth2/authorize?client_id=950680290181910528&permissions=8&scope=bot%20applications.commands"
+invite_link = "https://discord.com/oauth2/authorize?client_id=950680290181910528&permissions=8&scope=applications.commands%20bot"
 footer = "Made by Pranoy#0140"
 import nextcord, motor, json, asyncio, random
 from nextcord.ext import commands
