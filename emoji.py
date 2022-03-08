@@ -1,0 +1,7 @@
+arency = ""
+error = "<:Error:947067655519612959>"
+success = "<a:success:949982982129725470>"
+Frequent = "<:frequentcirclet:949535577806626836>"
+Scarce = "<:scarcecirclet:949535658291105822>"
+Rare = "<:rarecirclet:949535438044037142>"
+Saga = "<:sagacirclet:949535347145068574>"
