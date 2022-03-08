@@ -61,8 +61,8 @@ for fn in os.listdir('./economy'):
 
 
 @pranoy.event
-async def on_command_error(ctx):
-    if isinstance(commands.CommandNotFound): 
+async def on_command_error(ctx, error):
+    if isinstance(error, commands.CommandNotFound): 
       em = nextcord.Embed(title=f"Error", description=f"Command not found.", colour=clr)
       em.set_footer(text='Made by Pranoy#0140')
       await ctx.send(embed=em)
