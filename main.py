@@ -67,32 +67,37 @@ for fn in os.listdir('./economy'):
 #       em.set_footer(text='Made by Pranoy#0140')
 #       await ctx.send(embed=em)
 
-# @pranoy.event
-# async def on_command_error(ctx, error):
-#     if isinstance(error, commands.CommandOnCooldown):
-#         msg = 'Still on cooldown, please try again in {:.2f}s.'.format( 
-#             error.retry_after) 
-#         em13 = nextcord.Embed(title="**Error Block**", 
-#                              color=clr)
-#         em13.add_field(name="__Slowmode Error:__", value=msg)
-#         await ctx.send(embed=em13)
-#     if isinstance(error, commands.MissingRequiredArgument):
-#         msg2 = "Please enter all the required arguments!" 
-#         em14 = nextcord.Embed(title="Error Block", color=clr)
-#         em14.add_field(name="__Missing Required Arguments:__", value=msg2)
-#         await ctx.send(embed=em14) #sending the embed
-#     if isinstance(error, commands.MissingPermissions):
-#         msg3 = "You are missing permissions to use that command!"
-#         em15 = nextcord.Embed(title="**Error Block**",
-#                              color=clr)
-#         em15.add_field(name="__Missing Permissions:__", value=msg3)
-#         await ctx.send(embed=em15)
-#     if isinstance(error, commands.BotMissingPermissions):
-#       embed200 = nextcord.Embed(title="__Missing Permissions__", description="I dont have proper permissions to perform this action", colour=clr)
-#       try:
-#         await ctx.author.send(embed=embed200)
-#       except:
-#         await ctx.send(embed=embed200)
+@pranoy.event
+async def on_command_error(ctx, error):
+    if isinstance(error, commands.CommandOnCooldown):
+        msg = 'Still on cooldown, please try again in {:.2f}s.'.format( 
+            error.retry_after) 
+        em13 = nextcord.Embed(title="**Error Block**", 
+                             color=clr)
+        em13.add_field(name="__Slowmode Error:__", value=msg)
+        await ctx.send(embed=em13)
+    if isinstance(error, commands.MissingRequiredArgument):
+        msg2 = "Please enter all the required arguments!" 
+        em14 = nextcord.Embed(title="Error Block", color=clr)
+        em14.add_field(name="__Missing Required Arguments:__", value=msg2)
+        await ctx.send(embed=em14) #sending the embed
+    if isinstance(error, commands.MissingPermissions):
+        msg3 = "You are missing permissions to use that command!"
+        em15 = nextcord.Embed(title="**Error Block**",
+                             color=clr)
+        em15.add_field(name="__Missing Permissions:__", value=msg3)
+        await ctx.send(embed=em15)
+    if isinstance(error, commands.BotMissingPermissions):
+      embed200 = nextcord.Embed(title="__Missing Permissions__", description="I dont have proper permissions to perform this action", colour=clr)
+      try:
+        await ctx.author.send(embed=embed200)
+      except:
+        await ctx.send(embed=embed200)
+    if isinstance(commands.CommandNotFound): 
+      em = nextcord.Embed(title=f"Error", description=f"Command not found.", colour=clr)
+      em.set_footer(text='Made by Pranoy#0140')
+      await ctx.send(embed=em)
+
     
 # @pranoy.event
 # async def on_guild_join(guild):

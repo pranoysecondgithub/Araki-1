@@ -1,4 +1,4 @@
-TOKEN="OTQzMTQ1MDQzOTQ0OTYwMTEw.YguyRQ.iwsuYkaPqrv5ICb7xMqb1fi7gyI"
+TOKEN="OTUwNjgwMjkwMTgxOTEwNTI4.YiccAw.vRX_wLU9o11K5ZmDgC0jbZbaycs"
 OWNERS=['943571992722944041']
 support_link = "https://discord.com/oauth2/authorize?client_id=943145043944960110&permissions=8&scope=bot%20applications.commands"
 invite_link = "https://discord.com/oauth2/authorize?client_id=943145043944960110&permissions=8&scope=bot%20applications.commands"

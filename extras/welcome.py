@@ -18,9 +18,10 @@ class Welcome(commands.Cog):
       insert = {"guild": ctx.guild.id, "channel": channel.id}
       await welcome.insert_one(insert)
       await ctx.send(f"{success} | Welcome channel set to {channel}")
+    elif channel == find['channel']:
+      await ctx.reply(f"{error} | This channel is already registered for welcom")
     else:
-      update = {"guild": ctx.guild, "channel": channel.id}
-      await welcome.update_one(update)
+      await welcome.update_one({"guild": ctx.guild.id}, {"$set": {"channel": channel.id}})
       await ctx.send(f"{success} | Welcome channel changed to {channel}")
   @commands.command(aliases=['Remove-welcome'])
   async def remove_welcome(self, ctx, channel:nextcord.TextChannel = None):
