@@ -15,10 +15,11 @@ class Unban(commands.Cog):
   async def Unban(self, ctx, member: nextcord.User = None):
     if member == None:
       await ctx.reply(f"{error} | Please mention a member!")
-    guild = ctx.guild
-    embed = nextcord.Embed(title=f'{success} | Unbanned Successfully', description=f"{member} Unbanned by {ctx.author.mention}", colour=clr)
-    embed.set_footer(text=footer)
-    await ctx.send(embed=embed)
-    await ctx.guild.unban(user=member)
+    else:
+      guild = ctx.guild
+      embed = nextcord.Embed(title=f'{success} | Unbanned Successfully', description=f"{member} Unbanned by {ctx.author.mention}", colour=clr)
+      embed.set_footer(text=footer)
+      await ctx.send(embed=embed)
+      await ctx.guild.unban(user=member)
 def setup(client):
   client.add_cog(Unban(client))
