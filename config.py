@@ -24,3 +24,5 @@ mainshop = [
       {"name": "Rare Circlet ```ID - 3```", "price": 500000, "value": '<:rarecirclet:949535438044037142>'},
       {"name": "Saga Circlet ```ID - 4```", "price": 1000000, "value": '<:sagacirclet:949535347145068574>'}
     ]
+
+#comit
