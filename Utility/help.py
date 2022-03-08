@@ -29,7 +29,7 @@ class Dropdown(nextcord.ui.Select):
       Fun = nextcord.Embed(title='Fun commands', description='```Meme, Cool, Gay, Penis, Poll, HeadOrTail```', colour=clr)
       Fun.set_footer(text='Made by Pranoy#0140')
 
-      Config = nextcord.Embed(title='Config commands', description='```Setprefix```', colour=clr)
+      Config = nextcord.Embed(title='Config commands', description='```Setprefix, Set-welcome, Remove-welcome```', colour=clr)
       Config.set_footer(text='Made by Pranoy#0140')
 
       Utility = nextcord.Embed(title='Utility commands', description='```Poll, Serverinfo, Userinfo, Membercount, Invite, Vote```', colour=clr)

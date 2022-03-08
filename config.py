@@ -9,12 +9,9 @@ from motor.motor_asyncio import AsyncIOMotorClient
 cluster = AsyncIOMotorClient(['mongodb+srv://pranoycasito:ricky&casito@cluster0.m9at5.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'])
 db = cluster["main"]
 cursor = db["economy"]
-
+# welcome
 db = cluster["main"]
-shop = db["shop"]
-
-db = cluster["main"]
-inv = db["inv"]
+welcome = db["welcome"]
 
 # Marry
 
