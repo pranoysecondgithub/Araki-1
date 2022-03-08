@@ -93,11 +93,6 @@ async def on_command_error(ctx, error):
         await ctx.author.send(embed=embed200)
       except:
         await ctx.send(embed=embed200)
-    if isinstance(commands.CommandNotFound): 
-      em = nextcord.Embed(title=f"Error", description=f"Command not found.", colour=clr)
-      em.set_footer(text='Made by Pranoy#0140')
-      await ctx.send(embed=em)
-
     
 # @pranoy.event
 # async def on_guild_join(guild):
