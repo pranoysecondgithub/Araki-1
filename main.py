@@ -60,12 +60,12 @@ for fn in os.listdir('./economy'):
     pranoy.load_extension(f'economy.{fn[:-3]}')
 
 
-# @pranoy.event
-# async def on_command_error(ctx):
-#     if isinstance(commands.CommandNotFound): 
-#       em = nextcord.Embed(title=f"Error", description=f"Command not found.", colour=clr)
-#       em.set_footer(text='Made by Pranoy#0140')
-#       await ctx.send(embed=em)
+@pranoy.event
+async def on_command_error(ctx):
+    if isinstance(commands.CommandNotFound): 
+      em = nextcord.Embed(title=f"Error", description=f"Command not found.", colour=clr)
+      em.set_footer(text='Made by Pranoy#0140')
+      await ctx.send(embed=em)
 
 @pranoy.event
 async def on_command_error(ctx, error):
