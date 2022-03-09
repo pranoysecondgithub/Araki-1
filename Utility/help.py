@@ -20,7 +20,7 @@ class Dropdown(nextcord.ui.Select):
       
       super().__init__(placeholder='Choose a command type...', min_values=1, max_values=1, options=SelectOptions)
     async def callback(self, interaction: nextcord.Interaction):
-      Moderation = nextcord.Embed(title='Moderation commands', description='```Clear, Avatar, Mute, Unmute, Kick, Ban, Unban, Warn, Slowmode```', colour=clr)
+      Moderation = nextcord.Embed(title='Moderation commands', description='```Clear, Avatar, Mute, Unmute, Kick, Ban, Unban, Warn, Slowmode, Lock, Unlock```', colour=clr)
       Moderation.set_footer(text='Made by Pranoy#0140')
 
       Economy = nextcord.Embed(title='Economy commands', description='```Earn, Create, Arency, Work, Give, Coinflip, Slots```', colour=clr)
