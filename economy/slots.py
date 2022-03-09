@@ -8,7 +8,7 @@ class Slots(commands.Cog):
   def __init__(self,client):
     self.client = client
 
-  @commands.command()
+  @commands.command(aliasse=['s'])
   async def Slots(self, ctx, amount = 1):
     prefixcheck = await predb.find_one({"guild": ctx.guild.id})
     prefix = prefixcheck['prefix']
