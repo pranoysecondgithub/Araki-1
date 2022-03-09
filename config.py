@@ -13,6 +13,10 @@ cursor = db["economy"]
 db = cluster["main"]
 welcome = db["welcome"]
 
+# leave
+db = cluster["main"]
+leave = db["leave"]
+
 # Marry
 
 db = cluster["main"]

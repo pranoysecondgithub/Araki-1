@@ -19,7 +19,7 @@ class Welcome(commands.Cog):
       await welcome.insert_one(insert)
       await ctx.send(f"{success} | Welcome channel set to {channel}")
     elif channel == find['channel']:
-      await ctx.reply(f"{error} | This channel is already registered for welcom")
+      await ctx.reply(f"{error} | This channel is already registered for welcome")
     else:
       await welcome.update_one({"guild": ctx.guild.id}, {"$set": {"channel": channel.id}})
       await ctx.send(f"{success} | Welcome channel changed to {channel}")
