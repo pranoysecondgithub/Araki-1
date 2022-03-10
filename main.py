@@ -9,7 +9,7 @@ import time
 from datetime import datetime
 from config import *
 from motor.motor_asyncio import AsyncIOMotorClient
-from time import strftime, gmtimefrom
+from time import strftime
 
 
 intents = nextcord.Intents.all()
