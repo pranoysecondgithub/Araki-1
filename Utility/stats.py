@@ -27,6 +27,8 @@ class Stats(commands.Cog):
         embed.add_field(name="Bot Uptime", value=f"{days}d, {hours}h, {minutes}m, {seconds}s", inline=True)
         embed.add_field(name = 'Memory Usage', value = f'{psutil.virtual_memory().percent}%', inline = False)
         embed.add_field(name = 'CPU Usage', value = f'{psutil.cpu_percent()}%', inline = False)
+        embed.add_field(name = 'Total servers', value = f'{len(pranoy.guilds)}%', inline = False)
+
         embed.set_author(name=f"{pranoy.user}'stats")
         embed.set_footer(text=footer)
         await ctx.send(embed=embed)
