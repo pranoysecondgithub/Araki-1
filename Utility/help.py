@@ -32,7 +32,7 @@ class Dropdown(nextcord.ui.Select):
       Config = nextcord.Embed(title='Config commands', description='```Config-help, Setprefix, Set-welcome, Remove-welcome, Set-leave, Remove-leave```', colour=clr)
       Config.set_footer(text='Made by Pranoy#0140')
 
-      Utility = nextcord.Embed(title='Utility commands', description='```Poll, Serverinfo, Userinfo, Membercount, Invite, Vote```', colour=clr)
+      Utility = nextcord.Embed(title='Utility commands', description='```Poll, Serverinfo, Userinfo, Membercount, Invite, Vote, Stats```', colour=clr)
       Utility.set_footer(text='Made by Pranoy#0140')
       if self.values[0] == 'Moderation':
         await interaction.response.send_message(embed=Moderation, ephemeral=True)

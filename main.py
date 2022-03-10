@@ -4,9 +4,11 @@ from nextcord.ext import commands
 import nextcord
 import os
 import config
+import datetime as dt
+from datetime import datetime
 from config import *
 from motor.motor_asyncio import AsyncIOMotorClient
-from time import strftime, gmtime
+from time import strftime, gmtimefrom
 
 
 intents = nextcord.Intents.all()
@@ -38,6 +40,7 @@ clr = 0x303136
 
 @pranoy.event
 async def on_ready():
+  pranoy.launch_time = dt.datetime.utcnow()
   await pranoy.change_presence(activity=nextcord.Activity(type=nextcord.ActivityType.listening, name=f"a.help"))
   print(f'Logged in as {pranoy.user} (ID: {pranoy.user.id})')
 
