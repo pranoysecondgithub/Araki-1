@@ -16,7 +16,7 @@ class Dropdown(nextcord.ui.Select):
         nextcord.SelectOption(label='Fun', description='Show the fun commands', emoji='<:fun:948144502940516412>'),
         nextcord.SelectOption(label='Config', description='Show the config commands', emoji='<:settings:947068267888013353>'),
         nextcord.SelectOption(label='Utility', description='Show the Utility commands', emoji='<:modd:947068138762166272>'),
-        nextcord.SelectOption(label='Emotes', description='Show the Emotes commands', emoji=':wink:'),
+        nextcord.SelectOption(label='Emotes', description='Show the Emotes commands', emoji='<:EmoteOk:951780893201170442>'),
       ]
       
       super().__init__(placeholder='Choose a command type...', min_values=1, max_values=1, options=SelectOptions)
