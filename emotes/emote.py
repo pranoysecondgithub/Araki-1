@@ -1,6 +1,6 @@
 import nextcord
 from nextcord.ext import commands
-from emoconfig import *
+from emo_config import *
 from main import *
 from config import *
 
