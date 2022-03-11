@@ -63,6 +63,10 @@ for fn in os.listdir('./economy'):
   if fn.endswith('.py'):
     pranoy.load_extension(f'economy.{fn[:-3]}')
 
+for fn in os.listdir('./emotes'):
+  if fn.emdswith('.py'):
+    pranoy.load_extension(f"emotes.{fn[:-3]}")
+
 
 @pranoy.event
 async def on_command_error(ctx, error):

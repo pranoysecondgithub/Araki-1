@@ -16,6 +16,7 @@ class Dropdown(nextcord.ui.Select):
         nextcord.SelectOption(label='Fun', description='Show the fun commands', emoji='<:fun:948144502940516412>'),
         nextcord.SelectOption(label='Config', description='Show the config commands', emoji='<:settings:947068267888013353>'),
         nextcord.SelectOption(label='Utility', description='Show the Utility commands', emoji='<:modd:947068138762166272>'),
+        nextcord.SelectOption(label='Emotes', description='Show the Emotes commands', emoji=':wink:'),
       ]
       
       super().__init__(placeholder='Choose a command type...', min_values=1, max_values=1, options=SelectOptions)
@@ -34,6 +35,9 @@ class Dropdown(nextcord.ui.Select):
 
       Utility = nextcord.Embed(title='Utility commands', description='```Poll, Serverinfo, Userinfo, Membercount, Invite, Vote, Stats```', colour=clr)
       Utility.set_footer(text='Made by Pranoy#0140')
+
+      Emote = nextcord.Embed(title='Emotes commands', description='```Cry, Smile, Dance, Blush, Sleepy```', colour=clr)
+      Emote.set_footer(text='Made by Pranoy#0140')
       if self.values[0] == 'Moderation':
         await interaction.response.send_message(embed=Moderation, ephemeral=True)
       if self.values[0] == 'Economy':
@@ -44,7 +48,8 @@ class Dropdown(nextcord.ui.Select):
         await interaction.response.send_message(embed=Config, ephemeral=True)
       if self.values[0] == 'Utility':
         await interaction.response.send_message(embed=Utility, ephemeral=True)
-
+      if self.values[0] == 'Emotes':
+        await interaction.response.send_message(embed=Emote, ephemeral=True)
 class DropdownView(nextcord.ui.View):
     def __init__(self):
         super().__init__()
