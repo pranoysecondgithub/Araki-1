@@ -36,7 +36,7 @@ class Dropdown(nextcord.ui.Select):
       Utility = nextcord.Embed(title='Utility commands', description='```Poll, Serverinfo, Userinfo, Membercount, Invite, Vote, Stats```', colour=clr)
       Utility.set_footer(text='Made by Pranoy#0140')
 
-      Emote = nextcord.Embed(title='Emotes commands', description='```Cry, Smile, Dance, Blush, Sleepy```', colour=clr)
+      Emote = nextcord.Embed(title='Emotes commands', description='```Cry, Smile, Dance, Blush, Sleepy, Thinking, Trigger```', colour=clr)
       Emote.set_footer(text='Made by Pranoy#0140')
       if self.values[0] == 'Moderation':
         await interaction.response.send_message(embed=Moderation, ephemeral=True)

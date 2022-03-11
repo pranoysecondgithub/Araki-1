@@ -44,5 +44,19 @@ class Emotes(commands.Cog):
         embed = nextcord.Embed(title=f"{ctx.author.name} is tired...", colour=clr)
         embed.set_image(url=Sleep_img)
         await ctx.send(embed=embed)
+
+    @commands.command()
+    async def Thinking(self, ctx):
+        Thinking_img = random.choice(thinking)
+        embed = nextcord.Embed(title=f"{ctx.author.name} is thinking...", colour=clr)
+        embed.set_image(url=Thinking_img)
+        await ctx.send(embed=embed)
+    
+    @commands.command()
+    async def Triggered(self, ctx):
+        Triggered_img = random.choice(trigger)
+        embed = nextcord.Embed(title=f"{ctx.author.name} is triggered...", colour=clr)
+        embed.set_image(url=Triggered_img)
+        await ctx.send(embed=embed)
 def setup(client):
     client.add_cog(Emotes(client))
