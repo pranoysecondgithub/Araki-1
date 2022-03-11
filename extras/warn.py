@@ -9,7 +9,7 @@ class Warn(commands.Cog):
 
   @commands.command()
   @commands.has_permissions(manage_messages=True)
-  async def Warn(self, ctx, member:nextcord.Member, reason = "No reason"):
+  async def Warn(self, ctx, member:nextcord.Member = None, *, reason = "No reason"):
     if member == None:
       await ctx.reply(f"{error} | Please mention someone")
     elif member == ctx.author.mention:

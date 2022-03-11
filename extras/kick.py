@@ -12,7 +12,7 @@ class Kick(commands.Cog):
   @commands.command()
   @commands.has_permissions(ban_members=True)
   @commands.bot_has_permissions(ban_members=True)
-  async def Kick(self, ctx, member: nextcord.Member = None, reason = 'No reason'):
+  async def Kick(self, ctx, member: nextcord.Member = None, *, reason = 'No reason'):
     user = ctx.author
     if member == None:
       await ctx.reply("Please provide a member")
