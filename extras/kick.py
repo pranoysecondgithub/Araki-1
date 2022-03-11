@@ -10,7 +10,7 @@ class Kick(commands.Cog):
     self.client = client
 
   @commands.command()
-  @commands.has_permissions(ban_members=True)
+  @commands.has_permissions(kick_members=True)
   @commands.bot_has_permissions(ban_members=True)
   async def Kick(self, ctx, member: nextcord.Member = None, *, reason = 'No reason'):
     user = ctx.author

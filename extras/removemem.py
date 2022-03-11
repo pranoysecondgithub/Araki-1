@@ -10,6 +10,7 @@ class Leave(commands.Cog):
     self.client = client
         
   @commands.command(aliases=['Set-leave'])
+  @commands.has_permissions(manage_server=True)
   async def set_leave(self, ctx, channel:nextcord.TextChannel = None):
     if channel == None:
       channel = ctx.channel
@@ -24,6 +25,7 @@ class Leave(commands.Cog):
       await leave.update_one({"guild": ctx.guild.id}, {"$set": {"channel": channel.id}})
       await ctx.send(f"{success} | Leave channel changed to {channel}")
   @commands.command(aliases=['Remove-leave'])
+  @commands.has_permissions(manage_server=True)
   async def remove_leave(self, ctx, channel:nextcord.TextChannel = None):
     if channel == None:
       channel = ctx.channel
