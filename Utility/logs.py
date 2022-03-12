@@ -18,8 +18,8 @@ class Logs(commands.Cog):
         embed.add_field(name="Guild owner",
                         value=f"{guild.owner}",
                         inline=True)
-        embed.add_field(name="Guild owner id",
-                        value=f"{guild.owner.id}",
+        embed.add_field(name="Guild members",
+                        value=f"{len(guild.members)}",
                         inline=True)
         embed.add_field(name="Total guilds",
                         value=f"{len(pranoy.guilds)}",
