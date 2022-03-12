@@ -45,12 +45,6 @@ async def on_ready():
   await pranoy.change_presence(activity=nextcord.Activity(type=nextcord.ActivityType.listening, name=f"a.help"))
   print(f'Logged in as {pranoy.user} (ID: {pranoy.user.id})')
 
-@pranoy.event
-async def on_guild_join(guild):
-  if len(guild.members) < 50:
-    await asyncio.sleep(2)
-    await guild.leave(guild)
-
 
 for fn in os.listdir('./Utility'):
   if fn.endswith('.py'):
