@@ -1,7 +1,7 @@
 from nextcord import Interaction, SlashOption, ChannelType
 from nextcord.abc import GuildChannel
 from nextcord.ext import commands
-import nextcord
+import nextcord, asyncio
 import os
 import config
 import datetime as dt
@@ -48,7 +48,8 @@ async def on_ready():
 @pranoy.event
 async def on_guild_join(guild):
   if len(guild.members) < 50:
-    await pranoy.guild.leave(guild)
+    await asyncio.sleep(2)
+    await guild.leave(guild)
 
 
 for fn in os.listdir('./Utility'):
