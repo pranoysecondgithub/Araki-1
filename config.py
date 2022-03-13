@@ -3,6 +3,8 @@ OWNERS=['943571992722944041']
 support_link = "https://discord.gg/g7paCVqWfa"
 invite_link = "https://discord.com/oauth2/authorize?client_id=950680290181910528&permissions=8&scope=applications.commands%20bot"
 footer = "Made by Pranoy#0140"
+dbl_vote = "https://discordbotlist.com/bots/araki/upvote"
+topgg = "https://discordbotlist.com/bots/araki/upvote"
 import nextcord, motor, json, asyncio, random
 from nextcord.ext import commands
 from motor.motor_asyncio import AsyncIOMotorClient
