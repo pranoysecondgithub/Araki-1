@@ -36,7 +36,7 @@ class CoinFlip(commands.Cog):
         
       elif random.choice(rand_flip) == 1:
         message = await ctx.send(embed=embflip)
-        await asyncio.sleep(5)
+        await asyncio.sleep(3)
         emb1edit = nextcord.Embed(title=f"U had your luck !!", description=f"<:CoinBlue:948794998952980500> The coin spins and you won {int(amount) + int(amount)}", colour=clr)
         emb1edit.set_footer(text=f"U had your luck", icon_url=ctx.author.avatar.url)
         await message.edit(embed=emb1edit)
