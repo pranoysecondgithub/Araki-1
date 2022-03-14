@@ -12,6 +12,8 @@ from motor.motor_asyncio import AsyncIOMotorClient
 from time import strftime
 
 
+
+
 intents = nextcord.Intents.all()
 intents.members = True
 
@@ -36,7 +38,8 @@ pranoy = commands.Bot(
   intents = intents,
   owner_ids=['852786941842030594']
 )
-    
+
+
 clr = 0x303136
 
 @pranoy.event
