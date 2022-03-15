@@ -27,7 +27,7 @@ class Bal(commands.Cog):
         #         description = f"**Balance:** ${balance}",
         #         color = clr
         # )
-        await ctx.message.reply(f"You have **{balance} arency!**")
+        await ctx.message.reply(f"You have **{balance:,} arency!**")
         return
       else:
         check = await cursor.find_one({"id": member.id})
