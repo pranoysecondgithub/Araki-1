@@ -39,7 +39,7 @@ class Give(commands.Cog):
         await cursor.update_one({"id": ctx.author.id}, {"$set": {"money": user_cut}})
         emb4 = nextcord.Embed(
               title = "Successful",
-              description = f"{ctx.author.mention} give {amount:,} to {user.mention}",
+              description = f"{ctx.author.mention} give {amount} to {user.mention}",
               color = clr
           )
         await ctx.reply(embed=emb4)
