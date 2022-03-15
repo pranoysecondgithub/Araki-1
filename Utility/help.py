@@ -24,7 +24,7 @@ class Dropdown(nextcord.ui.Select):
       Moderation = nextcord.Embed(title='Moderation commands', description='```Clear, Avatar, Mute, Unmute, Kick, Ban, Unban, Warn, Slowmode, Lock, Unlock```', colour=clr)
       Moderation.set_footer(text='Made by Pranoy#0140')
 
-      Economy = nextcord.Embed(title='Economy commands', description='```Earn, Create, Arency, Work, Give, Coinflip, Slots, Shop, Buy, Inventory```', colour=clr)
+      Economy = nextcord.Embed(title='Economy commands', description='```Earn, Create, Arency, Work, Give, Coinflip, Slots, Shop, Buy, Inventory, Sell```', colour=clr)
       Economy.set_footer(text='Made by Pranoy#0140')
 
       Fun = nextcord.Embed(title='Fun commands', description='```Meme, Cool, Gay, Penis, Poll, HeadOrTail```', colour=clr)
