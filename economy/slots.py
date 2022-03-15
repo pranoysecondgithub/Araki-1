@@ -36,7 +36,7 @@ class Slots(commands.Cog):
 
         won = nextcord.Embed(title = "Slots Machine", color = clr)
         won.add_field(name = "{}\nWon".format(slotOutput), value = f'You won {amount + amount + amount} arency')
-        won.set_footer(text=footer", icon_url=ctx.author.avatar.url)
+        won.set_footer(text=footer, icon_url=ctx.author.avatar.url)
         newBal2 = check['money'] + amount
 
         lost = nextcord.Embed(title = "Slots Machine", color = clr)
