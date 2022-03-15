@@ -11,7 +11,7 @@ class Shop(commands.Cog):
     async def Shop(self, ctx):
         pre = await predb.find_one({"guild": ctx.guild.id})
         prefix = pre['prefix']
-        embed = nextcord.Embed(description=f"To buy any item type ```{prefix}buy item_id```", colour=clr)
+        embed = nextcord.Embed( colour=clr)
         embed.set_author(name=f"{ctx.author.name}'s Inventory")
         embed.set_footer(text=f"To check your inventory type {prefix}inv", icon_url=ctx.author.avatar.url)
         embed.add_field(name=f":candy: Candy -- 1000 | {arency}", value=f"To buy this item type ```{prefix}buy candy```")
