@@ -37,15 +37,17 @@ class CoinFlip(commands.Cog):
         await ctx.reply("**Uff You cant do that**!")
         
       elif random.choice(rand_flip) == 1:
+        double=int(amount) + int(amount)
         message = await ctx.send(embed=embflip)
         await asyncio.sleep(5)
-        emb1edit = nextcord.Embed(title=f"U had your luck !!", description=f"<:CoinBlue:948794998952980500> The coin spins and you won {int(amount) + int(amount):,}", colour=clr)
+        emb1edit = nextcord.Embed(title=f"U had your luck !!", description=f"<:CoinBlue:948794998952980500> The coin spins and you won {double:,}", colour=clr)
         emb1edit.set_footer(text=f"U had your luck", icon_url=ctx.author.avatar.url)
         await message.edit(embed=emb1edit)
         NewBal = coinflip_check['money'] + int(amount)
         await cursor.update_one({"id": user.id}, {"$set": {"money": NewBal}})
         
       elif random.choice(rand_flip) == 2:
+        
         message = await ctx.send(embed=embflip)
         await asyncio.sleep(5)
         emb2edit = nextcord.Embed(title=f"Better luck next time !!", description=f"<:CoinBlue:948794998952980500> The coin spins and you lost all", colour=clr)
