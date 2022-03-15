@@ -14,11 +14,11 @@ class Vote(commands.Cog):
   @commands.command()
   async def Vote(self,ctx):
       top = Button(label="Top.gg", url=topgg, emoji="<:topgg:952288172446998528>")
-      dbl = Button(label="dbl.com", url=dbl_vote, emoji="<:dbl:952288060425519165>")
-      embed = nextcord.Embed(title="Vote me please!", description="Click on the button to vote me!", colour = clr)
+      embed = nextcord.Embed(title=f"{ctx.author.name} Vote me please!",colour = clr)
+      embed.add_field(name, value=f"```\nArency - 1000\nFish - 1x\n```")
+      embed.set_footer(text="You can vote in every 12hr!")
       myVote = View()
       myVote.add_item(top)
-      myVote.add_item(dbl)
       await ctx.send(embed=embed, view=myVote)
 def setup(client):
   client.add_cog(Vote(client))

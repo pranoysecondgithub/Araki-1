@@ -41,7 +41,7 @@ class Bal(commands.Cog):
         #         description = f"**Balance:** ${balance}",
         #         color = clr
         # )
-          await ctx.message.reply(f"{member.name} have **{balance} arency!**")
+          await ctx.message.reply(f"{member.name} have **{balance:,} arency!**")
 
 def setup(client):
   client.add_cog(Bal(client))
