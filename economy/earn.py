@@ -16,7 +16,6 @@ class Earn(commands.Cog):
     embed.add_field(name=f"Work", value="Example ```{prefix}work```")
     embed.add_field(name=f"Slots", value="Example ```{prefix}slots amount```")
     embed.add_field(name=f"Coinflip", value="Example ```{prefix}cf amount```")
-    embed.add_field(name=f"Vote", value="Example ```{prefix}vote```")
     embed.set_footer(text=footer)
     await ctx.send(embed=embed)
 def setup(client):

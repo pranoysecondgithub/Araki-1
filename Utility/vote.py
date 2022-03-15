@@ -14,8 +14,7 @@ class Vote(commands.Cog):
   @commands.command()
   async def Vote(self,ctx):
       top = Button(label="Top.gg", url=topgg, emoji="<:topgg:952288172446998528>")
-      embed = nextcord.Embed(title=f"{ctx.author.name} Vote me please!",colour = clr)
-      embed.add_field(name="Rewards:-", value=f"```\nArency - 1000\nFish - 1x\n```")
+      embed = nextcord.Embed(title=f"{ctx.author.name} Vote me please!", description="Click on this button to vote me!", colour = clr)
       embed.set_footer(text="You can vote in every 12hr!")
       myVote = View()
       myVote.add_item(top)

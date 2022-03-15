@@ -45,7 +45,7 @@ clr = 0x303136
 @pranoy.event
 async def on_ready():
   pranoy.launch_time = dt.datetime.utcnow()
-  await pranoy.change_presence(activity=nextcord.Activity(type=nextcord.ActivityType.listening, name=f"a.help"))
+  await pranoy.change_presence(activity=nextcord.Activity(type=nextcord.ActivityType.listening, name=f"a.help | Total users {len(pranoy.users)}"))
   print(f'Logged in as {pranoy.user} (ID: {pranoy.user.id})')
 
 
