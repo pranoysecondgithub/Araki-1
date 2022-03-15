@@ -24,6 +24,9 @@ leave = db["leave"]
 db = cluster["main"]
 marrydb = db['marry']
 # Shop
+
+db = cluster["main"]
+inv = db["inv"]
 mainshop = [
       {"name": "Frequent Circlet ```ID - 1```", "price": 100000, "value": '<:frequentcirclet:949535577806626836>'},
       {"name": "Scarce Circlet ```ID - 2```", "price": 300000, "value": '<:scarcecirclet:949535658291105822>'},
