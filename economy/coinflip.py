@@ -25,7 +25,7 @@ class CoinFlip(commands.Cog):
     else:
       balance = coinflip_check['money']
       
-      embflip = nextcord.Embed(title=f"{ctx.author} spend <:CoinBlue:948794998952980500> {amount:,} and chose {ht}", description="<a:coin_blue_animate:948795258165141545> The coin spins...", colour=clr)
+      embflip = nextcord.Embed(title=f"{ctx.author} spend <:CoinBlue:948794998952980500> {amount} and chose {ht}", description="<a:coin_blue_animate:948795258165141545> The coin spins...", colour=clr)
       embflip.set_footer(text="Spinning", icon_url=ctx.author.avatar.url)
       if balance <= 0:
         await ctx.reply("Your balance is too low!")
@@ -34,7 +34,7 @@ class CoinFlip(commands.Cog):
 
 
       elif int(amount) < 1:
-        await ctx.reply("**Uff You cant do that**!")
+        await ctx.reply("**You cant do that**!")
         
       elif random.choice(rand_flip) == 1:
         message = await ctx.send(embed=embflip)
