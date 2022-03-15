@@ -36,7 +36,7 @@ class Dropdown(nextcord.ui.Select):
       Utility = nextcord.Embed(title='Utility commands', description='```Poll, Serverinfo, Userinfo, Membercount, Invite, Vote, Stats```', colour=clr)
       Utility.set_footer(text='Made by Pranoy#0140')
 
-      Emote = nextcord.Embed(title='Emotes commands', description='```Cry, Smile, Dance, Blush, Sleepy, Thinking, Trigger```', colour=clr)
+      Emote = nextcord.Embed(title='Emotes commands', description='```Cry, Smile, Dance, Blush, Sleepy, Thinking, Triggered```', colour=clr)
       Emote.set_footer(text='Made by Pranoy#0140')
       if self.values[0] == 'Moderation':
         await interaction.response.send_message(embed=Moderation, ephemeral=True)
@@ -66,7 +66,7 @@ class HelpPage(commands.Cog):
     view = DropdownView()
     emb = nextcord.Embed(title="Araki's commands", description="Hi! Welcome to the help page of Araki bot.\n```Please use the Select Menu to explore corresponding category```", colour=clr)
     emb.add_field(name="Suport ?", value=f"Click here to join our [support server]({support_link})", inline=True)
-    emb.add_field(name="Information", value=f"My prefix for this server is {prefix}\nThis bot is under devlopement if you have any ideas or anything related to imporvement of our bot you can join our [Support server]({support_link})", inline=True)
+    emb.add_field(name="Information", value=f"My prefix for this server is {prefix}\nIf you have any suggestions that you think will help improve Araki in any way, we urge you to join our official server and share them with us.", inline=True)
     emb.set_footer(text="Made by Pranoy#0140")
     emb.set_thumbnail(url=ctx.author.avatar.url)
     await ctx.send(embed=emb, view=view)
