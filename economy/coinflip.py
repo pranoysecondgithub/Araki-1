@@ -20,7 +20,7 @@ class CoinFlip(commands.Cog):
     pre = await predb.find_one({"guild": ctx.guild.id})
     prefix = pre['prefix']
     if amount > 100000:
-      await ctxr.reply("You can't give amount more than 100000!")
+      await ctx.reply("You can't give amount more than 100000!")
     elif coinflip_check is None:
       await ctx.message.reply(f"You don't have a profile!\nPlease execute the `{prefix}create` command to create a profile!")
     else:
