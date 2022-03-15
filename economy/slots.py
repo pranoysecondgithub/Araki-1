@@ -31,17 +31,17 @@ class Slots(commands.Cog):
         slotOutput = '| :{}: | :{}: | :{}: |\n'.format(slot1, slot2, slot3)
         embed1 = nextcord.Embed(title = "Slots Machine", color = clr)
         embed1.add_field(name = "{}\nWon".format(slotOutput), value = f'You won {amount + amount} arency')
-        embed1.set_footer(text=f"You have currently {check['money']} arency", icon_url=ctx.author.avatar.url)
+        embed1.set_footer(text=footer, icon_url=ctx.author.avatar.url)
         newBal1 = check['money'] + amount + amount
 
         won = nextcord.Embed(title = "Slots Machine", color = clr)
         won.add_field(name = "{}\nWon".format(slotOutput), value = f'You won {amount + amount + amount} arency')
-        won.set_footer(text=f"You have currently {check['money']} arency", icon_url=ctx.author.avatar.url)
+        won.set_footer(text=footer", icon_url=ctx.author.avatar.url)
         newBal2 = check['money'] + amount
 
         lost = nextcord.Embed(title = "Slots Machine", color = clr)
         lost.add_field(name = "{}\nLost".format(slotOutput), value = f'You lost {amount} arency')
-        lost.set_footer(text=f"You have currently {check['money']} arency", icon_url=ctx.author.avatar.url)
+        lost.set_footer(text=footer, icon_url=ctx.author.avatar.url)
         newBal3 = check['money'] - amount
         if slot1 == slot2 == slot3:
            await ctx.send(embedw=won)
