@@ -1,6 +1,6 @@
 TOKEN="OTUwNjgwMjkwMTgxOTEwNTI4.YiccAw.4yaUry3Qjb7UwrhgAN9CExEKs84"
 OWNERS=['943571992722944041']
-support_link = "https://discord.gg/g7paCVqWfa"
+support_link = "https://discord.gg/GH7awYfJ9q"
 invite_link = "https://discord.com/oauth2/authorize?client_id=950680290181910528&permissions=8&scope=applications.commands%20bot"
 footer = "Made by Pranoy#0140"
 dbl_vote = "https://discordbotlist.com/bots/araki/upvote"
