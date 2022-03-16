@@ -19,6 +19,7 @@ class Inv(commands.Cog):
         else:
             inv_find = await inv.find_one({"id": ctx.author.id})
             if inv_find is None:
+                msg = await ctx.send(f"{loading} | Your inventory is blank!")
                 insert = {"id": ctx.author.id, "name": 'Candy', "amount": 0}
                 insert2 = {"id": ctx.author.id, "name": 'Fish', "amount": 0}
                 insert3 = {"id": ctx.author.id, "name": 'Cookie', "amount": 0}
@@ -31,6 +32,7 @@ class Inv(commands.Cog):
                 await inv.insert_one(insert4)
                 await inv.insert_one(insert5)
                 await inv.insert_one(insert6)
+                await msg.edit(content=f"{success} | You successfully created your inventory! Run again this command to view your inventory!")
             else:
                 embed = nextcord.Embed(description=f"To sell any item type {prefix}sell item_id", colour=clr)
                 embed.set_author(name=f"{ctx.author.name}'s Inventory")
