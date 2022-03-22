@@ -17,21 +17,21 @@ class DropdownS(nextcord.ui.Select):
         nextcord.SelectOption(label='Config', description='Show the config commands', emoji='<:settings:947068267888013353>'),
         nextcord.SelectOption(label='Utility', description='Show the Utility commands', emoji='<:modd:947068138762166272>'),
       ]
-      
+            
       super().__init__(placeholder='Choose a command type...', min_values=1, max_values=1, options=SelectOptions)
     async def callback(self, interaction: nextcord.Interaction):
       Moderation = nextcord.Embed(title='Moderation commands', description='```Clear, Avatar, Mute, Unmute, Kick, Ban, Unban, Warn, Slowmode, Lock, Unlock```', colour=clr)
       Moderation.set_footer(text='Made by Pranoy#0140')
-
+      
       Economy = nextcord.Embed(title='Economy commands', description='```Earn, Create, Arency, Work, Give, Coinflip, Slots```', colour=clr)
       Economy.set_footer(text='Made by Pranoy#0140')
-
+      
       Fun = nextcord.Embed(title='Fun commands', description='```Meme, Cool, Gay, Penis, Poll, HeadOrTail```', colour=clr)
       Fun.set_footer(text='Made by Pranoy#0140')
-
+      
       Config = nextcord.Embed(title='Config commands', description='```Config-help, Setprefix, Set-welcome, Remove-welcome, Set-leave, Remove-leave```', colour=clr)
       Config.set_footer(text='Made by Pranoy#0140')
-
+      
       Utility = nextcord.Embed(title='Utility commands', description='```Poll, Serverinfo, Userinfo, Membercount, Invite, Vote```', colour=clr)
       Utility.set_footer(text='Made by Pranoy#0140')
       if self.values[0] == 'Moderation':
@@ -44,16 +44,16 @@ class DropdownS(nextcord.ui.Select):
         await interaction.response.send_message(embed=Config, ephemeral=True)
       if self.values[0] == 'Utility':
         await interaction.response.send_message(embed=Utility, ephemeral=True)
-
+  
 class DropdownViewS(nextcord.ui.View):
     def __init__(self):
         super().__init__()
         self.add_item(DropdownS())
-
+  
 class HelpPageS(commands.Cog):
   def __init__(self, client: commands.Bot):
     self.client = client
-
+    
   @nextcord.slash_command(name='help', description='show commands list!')
   async def helpS(self, interaction: nextcord.Interaction):
     check = await predb.find_one({"guild": interaction.guild.id})
@@ -65,6 +65,6 @@ class HelpPageS(commands.Cog):
     emb.set_footer(text="Made by Pranoy#0140")
     emb.set_thumbnail(url=interaction.user.avatar.url)
     await interaction.response.send_message(embed=emb, view=view, ephemeral=True)
-
+  
 def setup(client):
   client.add_cog(HelpPageS(client))

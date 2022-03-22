@@ -45,7 +45,7 @@ clr = 0x303136
 @pranoy.event
 async def on_ready():
   pranoy.launch_time = dt.datetime.utcnow()
-  await pranoy.change_presence(activity=nextcord.Activity(type=nextcord.ActivityType.listening, name=f"a.help | Total users {len(pranoy.users)}"))
+  await pranoy.change_presence(activity=nextcord.Activity(type=nextcord.ActivityType.listening, name=f"a.help | Total Servers {len(pranoy.guilds)}"))
   print(f'Logged in as {pranoy.user} (ID: {pranoy.user.id})')
 
 
@@ -57,6 +57,9 @@ for fn in os.listdir('./fun'):
   if fn.endswith('.py'):
     pranoy.load_extension(f'fun.{fn[:-3]}')
 
+for fn in os.listdir('./slash'):
+  if fn.endswith('.py'):
+    pranoy.load_extension(f'slash.{fn[:-3]}')
 
 for fn in os.listdir('./extras'):
   if fn.endswith('.py'):
