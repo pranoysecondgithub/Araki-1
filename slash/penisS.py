@@ -8,7 +8,7 @@ class PenisS(commands.Cog):
   def __init__ (self, client):
     self.client = client
 
-  @nextcord.slash_command(name='penis', description='This show your penis size', guild_ids=guild_id)
+  @nextcord.slash_command(name='penis', description='This show your penis size')
   async def PenisS(
     self,
     interaction:nextcord.Interaction,
