@@ -31,8 +31,6 @@ class CoinFlip(commands.Cog):
       elif balance < int(amount):
         await ctx.reply("Your balance is too low!")
         
-      elif amount > "100000":
-        await ctx.reply(f"You can't use more then {100000:,} arency to spin!")
         
         
       elif int(amount) < 1:
