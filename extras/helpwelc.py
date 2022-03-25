@@ -16,7 +16,7 @@ class HelpWelcome(commands.Cog):
     embed.add_field(name=f"{pre}set-welcome", value="It will set the welcome channel for you")
     embed.add_field(name=f"{pre}remove-welcome", value="It will remove the welcome channel for you")
     embed.add_field(name=f"{pre}set-leave", value="It will set the leave channel for you")
-    embed.add_field(name=f"{pre}remove-set", value="It will remove the leave channel for you")    
+    embed.add_field(name=f"{pre}remove-leave", value="It will remove the leave channel for you")    
     embed.set_footer(text=footer, icon_url=ctx.author.avatar.url)
     embed.set_author(name="Config help.", icon_url=ctx.author.avatar.url)
     await ctx.send(embed=embed)
