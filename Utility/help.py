@@ -39,17 +39,17 @@ class Dropdown(nextcord.ui.Select):
       Emote = nextcord.Embed(title='Emotes commands', description='```Cry, Smile, Dance, Blush, Sleepy, Thinking, Triggered```', colour=clr)
       Emote.set_footer(text='Made by Pranoy#0140')
       if self.values[0] == 'Moderation':
-        await interaction.response.send_message(embed=Moderation, ephemeral=True)
+        await interaction.response.edit_message(embed=Moderation)
       if self.values[0] == 'Economy':
-        await interaction.response.send_message(embed=Economy, ephemeral=True)
+        await interaction.response.edit_message(embed=Economy)
       if self.values[0] == 'Fun':
-        await interaction.response.send_message(embed=Fun, ephemeral=True)
+        await interaction.response.edit_message(embed=Fun)
       if self.values[0] == 'Config':
-        await interaction.response.send_message(embed=Config, ephemeral=True)
+        await interaction.response.edit_message(embed=Config)
       if self.values[0] == 'Utility':
-        await interaction.response.send_message(embed=Utility, ephemeral=True)
+        await interaction.response.edit_message(embed=Utility)
       if self.values[0] == 'Emotes':
-        await interaction.response.send_message(embed=Emote, ephemeral=True)
+        await interaction.response.edit_message(embed=Emote)
 class DropdownView(nextcord.ui.View):
     def __init__(self):
         super().__init__()
