@@ -3,7 +3,7 @@ from nextcord.ext import commands
 from config import *
 from main import *
 from emoji import *
-
+#hii guys
 class HelpConfigS(commands.Cog):
   def __init__(self, client):
     self.client = client
