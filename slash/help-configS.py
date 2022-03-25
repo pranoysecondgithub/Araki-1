@@ -8,7 +8,7 @@ class HelpConfigS(commands.Cog):
   def __init__(self, client):
     self.client = client
     
-  @nextcord.slash_command(name='help-config', description='This shows the help page of config', guild_ids=guild_id)
+  @nextcord.slash_command(name='help-config', description='This shows the help page of config')
   async def ConfigS(
     self,
     interaction:nextcord.Interaction
