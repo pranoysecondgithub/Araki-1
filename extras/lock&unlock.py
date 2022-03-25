@@ -17,6 +17,7 @@ class Lock_Unlock(commands.Cog):
     await ctx.send(f"<#{channel.id}> Is now in lockdown!")
     
   @commands.command()
+  @commands.has_permissions(manage_channels=True)
   async def Unlock(self, ctx, channel:nextcord.TextChannel = None):
     if channel == None:
       channel = ctx.channel
