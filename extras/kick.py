@@ -18,7 +18,7 @@ class Kick(commands.Cog):
       await ctx.reply("Please provide a member")
     else:
         await member.kick(reason=reason)
-        emb = nextcord.Embed(title=f'{success} | Successfully Kicked', description=f"{ctx.author.mention} banned {member.mention} for {reason}", colour=clr)
+        emb = nextcord.Embed(title=f'{success} | Successfully Kicked', description=f"{ctx.author.mention} kicked {member.mention} for {reason}", colour=clr)
         emb.set_footer(text=footer)
         await ctx.send(embed=emb)
         
