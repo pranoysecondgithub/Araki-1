@@ -11,7 +11,7 @@ class CoinFlip(commands.Cog):
     
     
     
-  @commands.cooldown(2, 20, commands.BucketType.user)
+  @commands.cooldown(2, 30, commands.BucketType.user)
   @commands.command(aliases=['Coinflip', 'cf', 'f'])
   async def Flip(self, ctx, amount = "1", ht = 'heads'):
     rand_flip = [2, 1, 0, 3, 4, 5]
@@ -21,6 +21,8 @@ class CoinFlip(commands.Cog):
     prefix = pre['prefix']
     if coinflip_check is None:
       await ctx.message.reply(f"You don't have a profile!\nPlease execute the `{prefix}create` command to create a profile!")
+    elif int(amount) > 50000:
+      await ctx.reply("You can't spin more than 50000 arency!")
     else:
       balance = coinflip_check['money']
             
