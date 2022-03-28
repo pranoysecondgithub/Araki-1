@@ -10,8 +10,7 @@ class BanS(commands.Cog):
     self.client = client
 
   @nextcord.slash_command(name='ban', description='Ban a member')
-  @commands.has_permissions(ban_members=True)
-  @commands.bot_has_permissions(ban_members=True)
+  @application_checks.has_permissions(ban_members=True)
   async def BanS(
     self,
     interaction:nextcord.Interaction,

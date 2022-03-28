@@ -10,7 +10,7 @@ class LeaveS(commands.Cog):
     self.client = client
         
   @nextcord.slash_command(name='set-leave-channel', description='This command will set the leave channel for you!')
-  @commands.has_permissions(administrator=True)
+  @application_checks.has_permissions(administrator=True)
   async def set_leaveS(
     self,
     interaction:nextcord.Interaction,
@@ -29,7 +29,7 @@ class LeaveS(commands.Cog):
       await leave.update_one({"guild": interaction.guild.id}, {"$set": {"channel": channel.id}})
       await interaction.response.send_message(f"{success} | Leave channel changed to {channel}")
   @nextcord.slash_command(name='remove-leave-channel', description='This will remove your leave channel')
-  @commands.has_permissions(administrator=True)
+  @application_checks.has_permissions(administrator=True)
   async def remove_leaveS(self,
                           interaction:nextcord.Interaction,
                           channel: nextcord.abc.GuildChannel = nextcord.SlashOption(channel_types=[ChannelType.text],name='channel', description='Please select a channel', required=False)

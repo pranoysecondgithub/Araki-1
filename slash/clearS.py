@@ -8,7 +8,7 @@ class ClearS(commands.Cog):
     self.client = client
 
   @nextcord.slash_command(name='clear', description='Delete some messages')
-  @commands.has_permissions(manage_messages = True)
+  @application_checks.has_permissions(manage_messages=True)
   async def ClearS(
     self,
     interaction:nextcord.Interaction,

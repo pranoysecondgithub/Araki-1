@@ -10,8 +10,7 @@ class KickS(commands.Cog):
     self.client = client
 
   @nextcord.slash_command(name='kick', description='Kick a member')
-  @commands.has_permissions(kick_members=True)
-  @commands.bot_has_permissions(kick_members=True)
+  @application_checks.has_permissions(kick_members=True)
   async def KickS(
     self,
     interaction:nextcord.Interaction,

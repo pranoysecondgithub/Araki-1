@@ -28,7 +28,7 @@ class MuteS(commands.Cog):
     self.client = client
     
   @nextcord.slash_command(name='mute', description='Mute a member')
-  @commands.has_permissions(manage_roles=True)
+  @application_checks.has_permissions(administrator=True)
   async def muteS(
     self,
     interaction:nextcord.Interaction,
@@ -51,7 +51,7 @@ class MuteS(commands.Cog):
             pass
     
   @nextcord.slash_command(name='unmute', description='Unmute a member')
-  @commands.has_permissions(manage_roles=True)
+  @application_checks.has_permissions(administrator=True)
   async def unmuteS(
     self,
     interaction:nextcord.Interaction,

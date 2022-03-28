@@ -10,7 +10,7 @@ class PrefixS(commands.Cog):
     self.client = client
 
   @nextcord.slash_command(name='set-prefix', description='This will change the bot prefix')
-  @commands.has_permissions(administrator=True)
+  @application_checks.has_permissions(administrator=True)
   async def setprefixS(
     self,
     interaction: nextcord.Interaction,
