@@ -28,7 +28,7 @@ lockfile==0.12.2
 motor==2.5.1
 msgpack==1.0.2
 multidict==6.0.2
-nextcord==2.0.0a9
+nextcord==2.0.0a10
 packaging==20.9
 parso==0.5.2
 pastel==0.2.1
