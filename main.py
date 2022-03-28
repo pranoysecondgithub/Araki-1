@@ -1,6 +1,7 @@
-from nextcord import Interaction, SlashOption, ChannelType
+from nextcord import Interaction, SlashOption, ChannelType, ButtonStyle
 from nextcord.abc import GuildChannel
 from nextcord.ext import commands
+from nextcord.ui import Button, View
 import nextcord, asyncio
 import os
 import config
@@ -108,25 +109,44 @@ async def on_command_error(ctx, error):
       except:
         await ctx.send(embed=embed200)
     
-# @pranoy.event
-# async def on_guild_join(guild):
-#   for channel in guild.text_channels:
-#     if channel.permissions_for(guild.me).send_messages:
-#       embedHi = discord.Embed(
-#                 title="Thanks for adding me!",
-#                 description=
-#                 f"<:impostor:774673531786625024>I am the Impostor - a bot created by Baz!<:impostor:774673531786625024>\n\n<:noice:751384305464377375>You can join my support server by running $help and you can view all of my commands here as well!<:noice:751384305464377375>\n\n<:patreon:839897502925062165> Feel free to go to https://www.patreon.com/theimpostor to gain access to cool premium commands! <:patreon:839897502925062165>\nIf you join the <:purple:839879572631453696> Hacker Plan <:purple:839879572631453696>, then you will recieve all premium commands, a special role, early access to commands and even work in progress updates!\n:partying_face:Have fun!:partying_face:\n\n\n<:ping:757276110252670986>When you added this bot, it was in version {__version__}<:ping:757276110252670986>",
-#           url="https://www.patreon.com/theimpostor",
-#                 colour=discord.Colour.red())
-#       embedHi.set_thumbnail(
-#                 url=
-#                 "image url"
-#             )
-#       embedHi.set_image(url="image url")
-#       embedHi.set_footer(
-#                 text="© Baz - The Impostor - Among Us bot for Discord")
-#       await channel.send(embed=embedHi)
-#     break
-
+@pranoy.event
+async def on_guild_join(guild):
+  pre = await predb.find_one({"guild": guild.id})
+  prefix = pre['prefix']
+  for channel in guild.text_channels:
+    if channel.permissions_for(guild.me).send_messages:
+      embedHi = nextcord.Embed(
+                title="Thanks for adding me!",
+                description=
+                f"Use /help or {prefix}help to get a commands list",
+          url=support_link,
+                colour=clr)
+      embedHi.set_footer(
+                text=f"© {footer}")
+      embedHi.add_field(name='Information', value=f"My prefix for this server is {prefix}\nIf you have any suggestions that you think will help improve Araki in any way, we urge you to join our official server and share them with us.")
+      support_vtn = Button(label='Support Server', url=support_link)
+      view = View()
+      view.add_item(support_vtn)
+      await channel.send(embed=embedHi, view=view)
+    break@pranoy.event
+async def on_guild_join(guild):
+  pre = await predb.find_one({"guild": guild.id})
+  prefix = pre['prefix']
+  for channel in guild.text_channels:
+    if channel.permissions_for(guild.me).send_messages:
+      embedHi = nextcord.Embed(
+                title="Thanks for adding me!",
+                description=
+                f"Use /help or {prefix}help to get a commands list",
+          url=support_link,
+                colour=clr)
+      embedHi.set_footer(
+                text=f"© {footer}")
+      embedHi.add_field(name='Information', value=f"My prefix for this server is {prefix}\nIf you have any suggestions that you think will help improve Araki in any way, we urge you to join our official server and share them with us.")
+      support_vtn = Button(label='Support Server', url=support_link)
+      view = View()
+      view.add_item(support_vtn)
+      await channel.send(embed=embedHi, view=view)
+    break
 
 pranoy.run(TOKEN)
