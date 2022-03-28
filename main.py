@@ -128,25 +128,6 @@ async def on_guild_join(guild):
       view = View()
       view.add_item(support_vtn)
       await channel.send(embed=embedHi, view=view)
-    break@pranoy.event
-async def on_guild_join(guild):
-  pre = await predb.find_one({"guild": guild.id})
-  prefix = pre['prefix']
-  for channel in guild.text_channels:
-    if channel.permissions_for(guild.me).send_messages:
-      embedHi = nextcord.Embed(
-                title="Thanks for adding me!",
-                description=
-                f"Use /help or {prefix}help to get a commands list",
-          url=support_link,
-                colour=clr)
-      embedHi.set_footer(
-                text=f"© {footer}")
-      embedHi.add_field(name='Information', value=f"My prefix for this server is {prefix}\nIf you have any suggestions that you think will help improve Araki in any way, we urge you to join our official server and share them with us.")
-      support_vtn = Button(label='Support Server', url=support_link)
-      view = View()
-      view.add_item(support_vtn)
-      await channel.send(embed=embedHi, view=view)
     break
 
 pranoy.run(TOKEN)
