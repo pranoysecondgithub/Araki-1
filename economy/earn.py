@@ -20,7 +20,7 @@ class Earn(commands.Cog):
     embed.set_footer(text=footer)
     await ctx.send(embed=embed)
 
-  @nextcord.slash_command(name='earn', description='It will show how you earn arency', guild_ids=guild_id)
+  @nextcord.slash_command(name='earn', description='It will show how you earn arency')
   async def EarnS(self, intr:nextcord.Interaction):
     prefix_check = await predb.find_one({"guild": intr.guild.id})
     prefix = prefix_check['prefix']
