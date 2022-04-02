@@ -13,9 +13,9 @@ class VoteRewards(commands.Cog):
         if message.channel.id == 952278017571442750:
             data = message.content.split(" ")
             user = re.sub("\D", "", data[4])
-            user_object = pranoy.get_user(int(user)) or await pranoy.fetch_user(int(user))
+            user_object = pranoy.get_user(user) or await pranoy.fetch_user(user)
             user=user_object
-            find = await cursor.find_one({"id": user_object.id})
+            find = await cursor.find_one({"id": user_object})
             inv_find = await inv.find_one({"id": user_object.id, "name": 'Fish'})
             if find is None:
                 return
@@ -38,4 +38,4 @@ class VoteRewards(commands.Cog):
                 await user_object.send(embed=embed2)
             
 def setup(client):
-    client.add_cog(VoteRewards(client))
+    client.add_cog(VoteRewards(clien
