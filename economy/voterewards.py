@@ -38,4 +38,4 @@ class VoteRewards(commands.Cog):
                 await user_object.send(embed=embed2)
             
 def setup(client):
-    client.add_cog(VoteRewards(clien
+    client.add_cog(VoteRewards(client)
