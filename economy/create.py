@@ -38,20 +38,23 @@ Click on Accept to accept rules.''', colour=clr)
                     super().__init__()
                     self.value = True
                 @nextcord.ui.button(label="Accept", style=nextcord.ButtonStyle.green, emoji="👍")
-                async def accept2(self, button: nextcord.ui.Button, intr: nextcord.Interaction):
-                    user = intr.user
-                    insert = {
-                        "id": user.id,
-                        "name": user.name,
-                        "tags": user.discriminator,
-                        "money": 100
-                    }
-                    button.disabled = True
-                    await cursor.insert_one(insert)
-                    await intr.response.edit_message(view=self)
-                    await intr.channel.send("You have successfully created a profile!")
+                async def accept2(self, button: nextcord.ui.Button, intrbtn: nextcord.Interaction):
+                    if intr.user.id == intrbtn.user.id:
+                        user = intr.user
+                        insert = {
+                            "id": user.id,
+                            "name": user.name,
+                            "tags": user.discriminator,
+                            "money": 100
+                        }
+                        button.disabled = True
+                        await cursor.insert_one(insert)
+                        await intrbtn.response.edit_message(view=self)
+                        await intrbtn.channel.send("You have successfully created a profile!")
+                    else:
+                        await intr.response.send_message("This is not for you!", ephemeral=True)
             view = Accept1()
-            await intr.send(embed=emblogin, view=view)
+            await intr.respose.send_message(embed=emblogin, view=view)
             return
         
         else:
@@ -82,17 +85,20 @@ Click on Accept to accept rules.''', colour=clr)
                     self.value = True
                 @nextcord.ui.button(label="Accept", style=nextcord.ButtonStyle.green, emoji="👍")
                 async def accept(self, button: nextcord.ui.Button, intr: nextcord.Interaction):
-                    user = intr.user
-                    insert = {
-                        "id": user.id,
-                        "name": user.name,
-                        "tags": user.discriminator,
-                        "money": 100
-                    }
-                    button.disabled = True
-                    await cursor.insert_one(insert)
-                    await intr.response.edit_message(view=self)
-                    await intr.channel.send("You have successfully created a profile!")
+                    if ctx.user.id == intr.user.id:
+                        user = intr.user
+                        insert = {
+                            "id": user.id,
+                            "name": user.name,
+                            "tags": user.discriminator,
+                            "money": 100
+                        }
+                        button.disabled = True
+                        await cursor.insert_one(insert)
+                        await intr.response.edit_message(view=self)
+                        await intr.channel.send("You have successfully created a profile!")
+                    else:
+                        await intr.response.send_message("This is not for you!", ephemeral=True)
             view = Accept2()
             await ctx.send(embed=emblogin, view=view)
             return
