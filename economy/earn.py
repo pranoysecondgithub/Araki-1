@@ -25,10 +25,10 @@ class Earn(commands.Cog):
     prefix_check = await predb.find_one({"guild": intr.guild.id})
     prefix = prefix_check['prefix']
     embed = nextcord.Embed(title="Ways to earn arency", colour=clr)
-    embed.add_field(name=f"Work", value="Example ```{prefix}work```")
-    embed.add_field(name=f"Slots", value="Example ```{prefix}slots amount```")
-    embed.add_field(name=f"Vote", value="Example ```{prefix}vote```")
-    embed.add_field(name=f"Coinflip", value="Example ```{prefix}cf amount```")
+    embed.add_field(name=f"Work", value="Example ```/work```")
+    embed.add_field(name=f"Slots", value="Example ```/slots amount```")
+    embed.add_field(name=f"Vote", value="Example ```/vote```")
+    embed.add_field(name=f"Coinflip", value="Example ```/cf amount```")
     embed.set_footer(text=footer)
     await intr.response.send_message(embed=embed)
 def setup(client):
