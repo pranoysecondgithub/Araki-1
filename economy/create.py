@@ -39,7 +39,7 @@ Click on Accept to accept rules.''', colour=clr)
                     self.value = True
                 @nextcord.ui.button(label="Accept", style=nextcord.ButtonStyle.green, emoji="👍")
                 async def accept2(self, button: nextcord.ui.Button, intrbtn: nextcord.Interaction):
-                    if intr.user.id == intrbtn.user.id:
+                    if user.id == intrbtn.user.id:
                         user = intr.user
                         insert = {
                             "id": user.id,
@@ -85,7 +85,7 @@ Click on Accept to accept rules.''', colour=clr)
                     self.value = True
                 @nextcord.ui.button(label="Accept", style=nextcord.ButtonStyle.green, emoji="👍")
                 async def accept(self, button: nextcord.ui.Button, intr: nextcord.Interaction):
-                    if ctx.user.id == intr.user.id:
+                    if ctx.author.id == intr.user.id:
                         user = intr.user
                         insert = {
                             "id": user.id,
