@@ -13,10 +13,11 @@ class VoteRewards(commands.Cog):
         if message.channel.id == 952278017571442750:
             data = message.content.split(" ")
             user = re.sub("\D", "", data[4])
+             
             user_object = pranoy.get_user(user) or await pranoy.fetch_user(user)
             user=user_object
-            find = await cursor.find_one({"id": user_object})
-            inv_find = await inv.find_one({"id": user_object, "name": 'Fish'})
+            find = await cursor.find_one({"id": user.id})
+            inv_find = await inv.find_one({"id": user.id, "name": 'Fish'})
             embed = nextcord.Embed(title="Thanks for voting!", description=f"You can vote in every 12hr!", colour=clr)
             if find is None:
                 return
@@ -24,7 +25,7 @@ class VoteRewards(commands.Cog):
                 balance = find['money']
                 newBal = balance + 1000
 
-                await cursor.update_one({"id": user_object}, {"$set": {"money": newBal}})
+                await cursor.update_one({"id": user.id}, {"$set": {"money": newBal}})
                 embed.add_field(name="Arency", value="1000 Arency added to your wallet for voting!")
                 
                 embed.set_footer(text=f"You can vote in every 12hr!")
@@ -33,7 +34,7 @@ class VoteRewards(commands.Cog):
               return
             else:
                 newAmt = inv_find['amount'] + 1
-                await inv.update_one({"id": user_object.id, "name": 'Fish'}, {"$set": {"amount": newAmt}})
+                await inv.update_one({"id": user.id, "name": 'Fish'}, {"$set": {"amount": newAmt}})
                 embed.add_field(name='Inventory', value='1x Fish added to your inventory for voting!')
             embed.set_footer(text=f"You can vote in every 12hr!")
 
