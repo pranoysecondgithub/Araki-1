@@ -6,6 +6,7 @@ from config import *
 from main import *
 from nextcord.ui import Button, View
 
+
 class CreateS(commands.Cog):
     def __init__(self, client):
         self.client = client
@@ -32,12 +33,12 @@ You can not sell/trade arency or any bot goods for anything outside of the bot
  If you have any questions or reswap lost amount Join our support server
 
 Click on Accept to accept rules.''', colour=clr)
-            class Accept(nextcord.ui.View):
+            class Accept1(nextcord.ui.View):
                 def __init__(self):
                     super().__init__()
                     self.value = True
                 @nextcord.ui.button(label="Accept", style=nextcord.ButtonStyle.green, emoji="👍")
-                async def accept(self, button: nextcord.ui.Button, intr: nextcord.Interaction):
+                async def accept2(self, button: nextcord.ui.Button, intr: nextcord.Interaction):
                     user = intr.user
                     insert = {
                         "id": user.id,
@@ -45,10 +46,11 @@ Click on Accept to accept rules.''', colour=clr)
                         "tags": user.discriminator,
                         "money": 100
                     }
-
+                    button.disabled = True
                     await cursor.insert_one(insert)
-                    await intr.response.send_message(content="You have successfully created a profile!")
-            view = Accept()
+                    await intr.response.edit_message(view=self)
+                    await intr.channel.send("You have successfully created a profile!")
+            view = Accept1()
             await intr.send(embed=emblogin, view=view)
             return
         
@@ -74,9 +76,9 @@ You can not sell/trade arency or any bot goods for anything outside of the bot
  If you have any questions or reswap lost amount Join our support server
 
 Click on Accept to accept rules.''', colour=clr)
-            class Accept(nextcord.ui.View):
+            class Accept2(nextcord.ui.View):
                 def __init__(self):
-                    super().__init__(timeout=60)
+                    super().__init__()
                     self.value = True
                 @nextcord.ui.button(label="Accept", style=nextcord.ButtonStyle.green, emoji="👍")
                 async def accept(self, button: nextcord.ui.Button, intr: nextcord.Interaction):
@@ -87,14 +89,17 @@ Click on Accept to accept rules.''', colour=clr)
                         "tags": user.discriminator,
                         "money": 100
                     }
-
+                    button.disabled = True
                     await cursor.insert_one(insert)
-                    await intr.response.send_message(content="You have successfully created a profile!")
-            view = Accept()
+                    await intr.response.edit_message(view=self)
+                    await intr.channel.send("You have successfully created a profile!")
+            view = Accept2()
             await ctx.send(embed=emblogin, view=view)
             return
         
         else:
             await ctx.reply("You have an existing profile!")
+
+
 def setup(client):
     client.add_cog(CreateS(client))
