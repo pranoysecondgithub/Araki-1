@@ -61,6 +61,60 @@ class Inv(commands.Cog):
                 amt6 = Frequent['amount']
                 embed.add_field(name=f"<:frequentcirclet:949535577806626836> Frequent Circlet -- {amt6}", value=f"ID -- frequent")
                 await ctx.send(embed=embed)
+
+    @nextcord.slash_command(name='inventory', description='View your inventory')
+    async def InventoryS(self, intr:nextcord.Interaction):
+        find = await cursor.find_one({"id": intr.user.id})
+        pre = await predb.find_one({"guild": intr.guild.id})
+        prefix = pre['prefix']
+        if find is None:
+            await intr.response.send_message(f"You don't have a profile!\nPlease execute the `{prefix}create or /create` command to create a profile!")
+            return
+        else:
+            inv_find = await inv.find_one({"id": intr.user.id})
+            if inv_find is None:
+                await intr.response.send_message(f"{loading} | Your inventory is blank!")
+                insert = {"id": intr.user.id, "name": 'Candy', "amount": 0}
+                insert2 = {"id": intr.user.id, "name": 'Fish', "amount": 0}
+                insert3 = {"id": intr.user.id, "name": 'Cookie', "amount": 0}
+                insert4 = {"id": intr.user.id, "name": 'Rose', "amount": 0}
+                insert5 = {"id": intr.user.id, "name": 'Pizza', "amount": 0}
+                insert6 = {"id": intr.user.id, "name": 'Frequent Circlet', "amount": 0}
+                await inv.insert_one(insert)
+                await inv.insert_one(insert2)
+                await inv.insert_one(insert3)
+                await inv.insert_one(insert4)
+                await inv.insert_one(insert5)
+                await inv.insert_one(insert6)
+                await intr.edit_original_message(content=f"{success} | You successfully created your inventory! Run again this command to view your inventory!")
+            else:
+                embed = nextcord.Embed(description=f"To sell any item type {prefix}sell item_id", colour=clr)
+                embed.set_author(name=f"{intr.user.name}'s Inventory")
+
+                Candy = await inv.find_one({"id": intr.user.id, "name": 'Candy'})
+                amt1 = Candy['amount']
+                embed.add_field(name=f":candy: Candy -- {amt1}", value=f"ID -- candy")
+
+                Fish = await inv.find_one({"id": intr.user.id,"name": 'Fish'})
+                amt2 = Fish['amount']
+                embed.add_field(name=f":fish: Fish -- {amt2}", value=f"ID -- fish")
+
+                Cookie = await inv.find_one({"id": intr.user.id, "name": 'Cookie'})
+                amt3 = Cookie['amount']
+                embed.add_field(name=f":cookie: Cookie -- {amt3}", value=f"ID -- cookie")
+
+                Rose = await inv.find_one({"id": intr.user.id, "name": 'Rose'})
+                amt4 = Rose['amount']
+                embed.add_field(name=f":rose: Rose -- {amt4}", value=f"ID -- rose")
+
+                Pizza = await inv.find_one({"id": intr.user.id, "name": 'Pizza'})
+                amt5 = Pizza['amount']
+                embed.add_field(name=f":pizza: Pizza -- {amt5}", value=f"ID -- pizza")
+
+                Frequent = await inv.find_one({"id": intr.user.id, "name": 'Frequent Circlet'})
+                amt6 = Frequent['amount']
+                embed.add_field(name=f"<:frequentcirclet:949535577806626836> Frequent Circlet -- {amt6}", value=f"ID -- frequent")
+                await intr.response.send_message(embed=embed)
             
 def setup(client):
     client.add_cog(Inv(client))
