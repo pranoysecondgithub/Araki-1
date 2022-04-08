@@ -17,6 +17,7 @@ class Dropdown(nextcord.ui.Select):
         nextcord.SelectOption(label='Config', description='Show the config commands', emoji='<:settings:947068267888013353>'),
         nextcord.SelectOption(label='Utility', description='Show the Utility commands', emoji='<:modd:947068138762166272>'),
         nextcord.SelectOption(label='Emotes', description='Show the Emotes commands', emoji='<:EmoteOk:951780893201170442>'),
+        nextcord.SelectOption(label='Music', description='How the Music commands', emoji='<:music:962091722123386890>')
       ]
       
       super().__init__(placeholder='Choose a command type...', min_values=1, max_values=1, options=SelectOptions)
@@ -38,6 +39,8 @@ class Dropdown(nextcord.ui.Select):
 
       Emote = nextcord.Embed(title='Emotes commands', description='```Cry, Smile, Dance, Blush, Sleepy, Thinking, Triggered```', colour=clr)
       Emote.set_footer(text='Made by Pranoy#0140')
+      Music = nextcord.Embed(title='Config commands', description='```Play, Pause, Resume, Loop, Queue, Clearqueue, Suffle, Stop, Join, Leave,    Setvolume, Nowplaying,, Lyrics, Skip```', colour=clr)
+      Music.set_footer(text='Made by Pranoy#0140')
       if self.values[0] == 'Moderation':
         await interaction.response.edit_message(embed=Moderation)
       if self.values[0] == 'Economy':
@@ -50,7 +53,8 @@ class Dropdown(nextcord.ui.Select):
         await interaction.response.edit_message(embed=Utility)
       if self.values[0] == 'Emotes':
         await interaction.response.edit_message(embed=Emote)
-class DropdownView(nextcord.ui.View):
+      if self.values[0] == 'Music':
+        await interaction.response.edit_message(embed=Music)
     def __init__(self):
         super().__init__()
         self.add_item(Dropdown())

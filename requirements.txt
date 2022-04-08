@@ -63,3 +63,14 @@ yapf==0.31.0
 yarg==0.1.9
 yarl==1.7.2
 zipp==3.4.1
+hikari-lightbulb==2.2.1
+lyricsgenius==3.0.1
+spotipy==2.19.0
+uvloop==0.16.0
+lavasnek-rs==0.1.0a4
+ytmusicapi==0.20.0
+wavelink
+humanfriendly==10.0
+tekore==4.3.0
+nextcord-ext-menus
+pyNacl==1.5.0

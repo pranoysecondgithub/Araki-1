@@ -38,6 +38,9 @@ class DropdownS(nextcord.ui.Select):
 
       Emote = nextcord.Embed(title='Emotes commands', description='```Cry, Smile, Dance, Blush, Sleepy, Thinking, Triggered```', colour=clr)
       Emote.set_footer(text='Made by Pranoy#0140')
+      
+      Music = nextcord.Embed(title='Config commands', description='```Play, Pause, Resume, Loop, Queue, Clearqueue, Suffle, Stop, Join, Leave,    Setvolume, Nowplaying,, Lyrics, Skip```', colour=clr)
+      Music.set_footer(text='Made by Pranoy#0140')
       if self.values[0] == 'Moderation':
         await interaction.response.edit_message(embed=Moderation)
       if self.values[0] == 'Economy':
@@ -50,6 +53,9 @@ class DropdownS(nextcord.ui.Select):
         await interaction.response.edit_message(embed=Utility)
       if self.values[0] == 'Emotes':
         await interaction.response.edit_message(embed=Emote)
+      if self.values[0] == 'Music':
+        await interaction.response.edit_message(embed=Music)
+        
 class DropdownViewS(nextcord.ui.View):
     def __init__(self):
         super().__init__()

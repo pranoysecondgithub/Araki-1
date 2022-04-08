@@ -10,6 +10,9 @@ numpy = "^1.22.2"
 motor = "^2.5.1"
 requests = "^2.27.1"
 psutil = "^5.9.0"
+spotipy = "^2.19.0"
+wavelink = "^1.2.4"
+yarl = "^1.7.2"
 
 [tool.poetry.dev-dependencies]
 
