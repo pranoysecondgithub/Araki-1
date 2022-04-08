@@ -31,7 +31,7 @@ class EmbedGen(commands.Cog):
         if embDescription:
             ConfirmEmbed.description=embDescription
         if embFooter:
-            ConfirmEmbed.set_footer(text=footer)
+            ConfirmEmbed.set_footer(text=embFooter)
         if embImage:
             ConfirmEmbed.set_image(url=embImage)
         if embThumbnail:
