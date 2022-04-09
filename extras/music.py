@@ -59,7 +59,7 @@ class MusicController(nextcord.ui.View):
             if vc.volume > 9:
                 newlow_vol = vc.volume - 10
                 await vc.set_volume(int(newlow_vol))
-                await interaction.response.send_message(f"Volume increase to {vc.volume}", ephemeral=True)
+                await interaction.response.send_message(f"Volume decrease to {vc.volume}", ephemeral=True)
                 
             else:
                 await interaction.response.send_message("Volume is already too low!", ephemeral=True)
