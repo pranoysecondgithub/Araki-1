@@ -85,7 +85,6 @@ async def on_command_error(ctx, error):
         em.set_footer(text='Made by Pranoy#0140')
         await ctx.send(embed=em)
 
-
 @pranoy.event
 async def on_command_error(ctx, error):
     if isinstance(error, commands.CommandOnCooldown):
