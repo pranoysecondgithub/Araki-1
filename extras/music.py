@@ -43,26 +43,32 @@ class MusicController(nextcord.ui.View):
 
     @nextcord.ui.button(style=nextcord.ButtonStyle.secondary, emoji="🔉")
     async def halfvolume(self, button: nextcord.ui.Button, interaction: nextcord.Interaction):
-              
-        if not interaction.guild.voice_client:
-            embed = nextcord.Embed(description=f"📢 | Your are not playing a song.", color=clr)
-            embed.set_author(name=f"{interaction.user.name}")
-            await interaction.response.send_message(embed=embed, ephemeral=True)
+        dj_role = nextcord.utils.get(interaction.guild.roles, name="Araki Dj")
+        
+        if dj_role in interaction.user.roles or interaction.user.permissions_in(interaction.channel).administrator:
+            await interaction.response.send_message("Only Dj & Admins can use this option.")     
+            if not interaction.guild.voice_client:
+                embed = nextcord.Embed(description=f"📢 | Your are not playing a song.", color=clr)
+                embed.set_author(name=f"{interaction.user.name}")
+                await interaction.response.send_message(embed=embed, ephemeral=True)
 
-        elif not getattr(interaction.user.voice, "channel", None):
-            embed = nextcord.Embed(description="📢 | Join a voice channel please.", color=clr)
-            embed.set_author(name=f"{interaction.user.name}")
-            await interaction.response.send_message(embed=embed, ephemeral=True)
+            elif not getattr(interaction.user.voice, "channel", None):
+                embed = nextcord.Embed(description="📢 | Join a voice channel please.", color=clr)
+                embed.set_author(name=f"{interaction.user.name}")
+                await interaction.response.send_message(embed=embed, ephemeral=True)
 
-        else:
-            vc: wavelink.Player = interaction.guild.voice_client
-            if vc.volume > 9:
-                newlow_vol = vc.volume - 10
-                await vc.set_volume(int(newlow_vol))
-                await interaction.response.send_message(f"Volume decrease to {vc.volume}", ephemeral=True)
-                
             else:
-                await interaction.response.send_message("Volume is already too low!", ephemeral=True)
+                vc: wavelink.Player = interaction.guild.voice_client
+                if vc.volume > 9:
+                    newlow_vol = vc.volume - 10
+                    await vc.set_volume(int(newlow_vol))
+                    await interaction.response.send_message(f"Volume decrease to {vc.volume}", ephemeral=True)
+
+                else:
+                    await interaction.response.send_message("Volume is already too low!", ephemeral=True)
+        else:
+            await interaction.response.send_message("Only Dj & Admins can use this option.")     
+            
 
           
     # @nextcord.ui.button(style=nextcord.ButtonStyle.secondary, emoji="🔈")
