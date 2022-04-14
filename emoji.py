@@ -1,6 +1,6 @@
 arency = "<:arency:953140721060315137>"
 error = "<:Error:947067655519612959>"
-success = "<a:success:949982982129725470>"
+success = "<:success:964221819672461414>"
 Frequent = "<:frequentcirclet:949535577806626836>"
 Scarce = "<:scarcecirclet:949535658291105822>"
 Rare = "<:rarecirclet:949535438044037142>"

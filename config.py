@@ -34,4 +34,5 @@ mainshop = [
       {"name": "Saga Circlet ```ID - 4```", "price": 1000000, "value": '<:sagacirclet:949535347145068574>'}
     ]
 
-#comit
+db = cluster["main"]
+wlcm_msg = db['wlcm_msg']
