@@ -121,6 +121,10 @@ class Welcome(commands.Cog):
       await ctx.response.send_message(f"{error} | This is not a welcome channel!", ephemeral=True)
     else:
       await welcome.delete_one({"guild": ctx.guild.id, "channel": ctx.channel.id})
+      try:
+        await wlcm_msg.update_one({"guild": ctx.guild.id}, {"$set": {"author": None, "author_icon": None, "title": None, "description": None, "image": None, "thumbnail": None, "footer": None, "footer_icon":None, "message": None}})
+      except:
+        pass
       await ctx.response.send_message(f"{success} | Welcome channel removed!")
       
   @commands.Cog.listener()
@@ -152,7 +156,7 @@ class Welcome(commands.Cog):
       msg = find_msg['message']
       channel = find['channel']
 
-      embed = nextcord.Embed()
+      embed = nextcord.Embed(colour=clr)
       if author != '' and author != None:
         if '[userName]' in author:
           author = author.replace('[userName]', member.name)
