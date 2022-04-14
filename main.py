@@ -13,8 +13,8 @@ from motor.motor_asyncio import AsyncIOMotorClient
 from time import strftime
 from nextcord.ext import application_checks
 #idisabledintent
-#intents = nextcord.Intents.all()
-#intents.members = True
+intents = nextcord.Intents.default()
+intents.members = True
 
 db = cluster["main"]
 predb = db["prefix"]
@@ -36,7 +36,7 @@ async def get_prefix(client, message):
 pranoy = commands.Bot(command_prefix=get_prefix,
                       help_command=None,
                       case_insensitive=True,
-                      
+                      intents=intents
                       owner_ids=['852786941842030594'])
 
 clr = 0x303136
