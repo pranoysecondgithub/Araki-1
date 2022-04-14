@@ -208,16 +208,16 @@ class Welcome(commands.Cog):
       # images
       if author_icon != '' and author_icon != None:
         if '[avatar]' in avatar_icon:
-          avatar_icon = avatar_icon.replace('[avatar]', member.display_avatar)
+          avatar_icon = avatar_icon.replace('[avatar]', member.avatar.url)
       if thumbnail != '' and thumbnail != None:
         if '[avatar]' in thumbnail:
-          thumbnail = thumbnail.replace('[avatar]', member.display_avatar)
+          thumbnail = thumbnail.replace('[avatar]', member.avatar.url)
       if footer_icon != '' and footer_icon != None:
         if '[avatar]' in footer_icon:
-          footer_icon = footer_icon.replace('[avatar]', member.display_avatar)
+          footer_icon = footer_icon.replace('[avatar]', member.avatar.url)
       if image != '' and image != None:
         if '[avatar]' in image:
-          image = image.replace('[avatar]', member.display_avatar)
+          image = image.replace('[avatar]', member.avatar.url)
 
       #footer
       if footer != '' and footer != None:
@@ -235,19 +235,19 @@ class Welcome(commands.Cog):
       if author != None:
         embed.set_author(name=author)
       if author_icon != None:
-        embed.set_author(icon_url=member.avatar.url)
+        embed.set_author(icon_url=f"{author_icon}")
       if title != None:
         embed.title=title
       if desc != None:
         embed.description=desc
       if image != None:
-        embed.set_image(url=member.avatar.url)
+        embed.set_image(url=f"{image}")
       if thumbnail != None:
-        embed.set_thumbnail(url=member.avatar.url)
+        embed.set_thumbnail(url=f"{thumbnail}")
       if footer != None:
         embed.set_footer(text=footer)
       if footer_icon != None:
-        embed.set_footer(icon_url=footer_icon)
+        embed.set_footer(icon_url=f"{footer_icon}")
       if msg != None :
         await pranoy.get_channel(channel).send(msg, embed=embed)
       else:
