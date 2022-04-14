@@ -14,6 +14,7 @@ from time import strftime
 from nextcord.ext import application_checks
 #idisabledintent
 intents = nextcord.Intents.default()
+intents.members = True
 
 db = cluster["main"]
 predb = db["prefix"]
