@@ -16,7 +16,7 @@ class HelpConfigS(commands.Cog):
     ):
     if type == 1:
       embed1 = nextcord.Embed(title='Welcome Setup', description='Well these are the few steps that you can setup welcome easyly.', colour=clr)
-      embed1.add_field(name='Variables', value="``[user]``` Mentions the new member.\n```[userName]``` New member name without mentioning\n```[memberCount]``` Amount of members reached\n```[server]``` Server name\n```[joinTime]``` User join time\n```[userAge]``` View the age of the user account")
+      embed1.add_field(name='Variables', value="``[user]``` Mentions the new member.\n```[userName]``` New member name without mentioning\n```[memberCount]``` Amount of members reached\n```[server]``` Server name\n")
       embed1.add_field(name='Welcome setup commands', value='```\nenable-welcome, Set-welcome, welcome-author, welcome-author-icon, welcome-title, welcome-description, welcome-thumbnail, welcome-image, welcome-footer, welcome-footer-icon\n```')
       embed1.set_footer(text=footer)
       await interaction.response.send_message(embed=embed1)
