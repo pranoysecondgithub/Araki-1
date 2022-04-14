@@ -97,10 +97,15 @@ class Welcome(commands.Cog):
     if channel == None:
       channel = ctx.channel
     find = await welcome.find_one({"guild": ctx.guild.id, "channel": ctx.channel.id})
+    find = await wlcm_msg.find_one({"guild": ctx.guild.id})
     if find is None:
       await ctx.reply(f"{error} | This is not a welcome channel!")
     else:
       await welcome.delete_one({"guild": ctx.guild.id, "channel": ctx.channel.id})
+      try:
+        await wlcm_msg.update_one({"guild": ctx.guild.id}, {"$set": {"author": None, "author_icon": None, "title": None, "description": None, "image": None, "thumbnail": None, "footer": None, "footer_icon":None, "message": None}})
+      except:
+        pass
       await ctx.send(f"{success} | Welcome channel removed!")
   @nextcord.slash_command(name='remove-welcome-channel', description='Remove the welcome channel')
   @commands.has_permissions(manage_guild=True)
