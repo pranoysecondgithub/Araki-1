@@ -36,7 +36,7 @@ async def get_prefix(client, message):
 pranoy = commands.Bot(command_prefix=get_prefix,
                       help_command=None,
                       case_insensitive=True,
-                      intents=intents
+                      intents=intents,
                       owner_ids=['852786941842030594'])
 
 clr = 0x303136
