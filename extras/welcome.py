@@ -241,8 +241,6 @@ class Welcome(commands.Cog):
         embed.set_footer(icon_url=footer_icon)
       if msg != None :
         await pranoy.get_channel(channel).send(msg, embed=embed)
-      elif author == None and author_icon == None and title == None and desc == None and image == None and thumbnail == None and footer == None and footer_icon == None and msg != None:
-        await pranoy.get_channel(channel).send(msg)
       else:
         await pranoy.get_channel(channel).send(embed=embed)
 def setup(client):
