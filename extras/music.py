@@ -249,10 +249,6 @@ class Music(commands.Cog):
     async def node_connect(self):
         await self.bot.wait_until_ready()
         await wavelink.NodePool.create_node(bot=self.bot, 
-                                            host="losingtime.dpaste.org", 
-                                            port=2124, 
-                                            password="SleepingOnTrains")
-        await wavelink.NodePool.create_node(bot=self.bot, 
                                             host="lavalinkaraki1.herokuapp.com", 
                                             port=80, 
                                             password="youshallnotpass")
