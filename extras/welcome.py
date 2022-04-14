@@ -208,16 +208,16 @@ class Welcome(commands.Cog):
       # images
       if author_icon != '' and author_icon != None:
         if '[avatar]' in avatar_icon:
-          avatar_icon = avatar_icon.replace('[avatar]', member.avatar.url)
+          avatar_icon = avatar_icon.replace('[avatar]', member.display_avatar)
       if thumbnail != '' and thumbnail != None:
         if '[avatar]' in thumbnail:
-          thumbnail = thumbnail.replace('[avatar]', member.avatar.url)
+          thumbnail = thumbnail.replace('[avatar]', member.display_avatar)
       if footer_icon != '' and footer_icon != None:
         if '[avatar]' in footer_icon:
-          footer_icon = footer_icon.replace('[avatar]', member.avatar.url)
+          footer_icon = footer_icon.replace('[avatar]', member.display_avatar)
       if image != '' and image != None:
         if '[avatar]' in image:
-          image = image.replace('[avatar]', member.avatar.url)
+          image = image.replace('[avatar]', member.display_avatar)
 
       #footer
       if footer != '' and footer != None:
