@@ -4,54 +4,6 @@ from config import *
 from main import *
 from emoji import *
 
-class WelcomeReset(nextcord.ui.View):
-  def __init__(self):
-    super().__init__()
-  @nextcord.ui.button(label="Set Default Welcome Message", style=nextcord.ButtonStyle.blurple)  
-  async def pre1(self, button: nextcord.ui.Button, intr: nextcord.Interaction):
-    find = await wlcm_msg.find_one({"guild": ctx.guild.id})
-    if intr.user.guild_permissions.manage_guild:
-      if find is None:
-        await intr.response.send_message("Welcome module is not enabled. Use /enable-welcome to enable the module!")
-      else:
-        await wlcm_msg.update_one({"guild": intr.guild.id}, {"$set": {"author": '[userName]', "description": 'We are here to welcome you to our [server]\nMake sure to take your self roles and must read the rules of the server and follow them.\nWe are glad that you are here.\nMake some friends and enjoy here.', "message": 'Hey [user]', "footer": "Have a great day", "image": 'https://images-ext-2.discordapp.net/external/IqpxtrtucAQP-t9BJ_cFaElOZQ_fR02sXnqk_7Kd2Rg/https/images-ext-1.discordapp.net/external/iy22OZHR7b2ehLCND8XLt30bP99sryLfKNmnhtW6Qpg/https/images-ext-1.discordapp.net/external/Q8YY6DXMUlsu59ejC7gw5i2USSV9gpnyxNR3OSjlfz8/https/spacesprod.libertas.gg/embeds/zbmrAwzZzghBnE1625O7GPrxnwuroQgNfMtvl575.jpg'}})
-        await intr.response.send_message(f"{success} | Welcome message updated to default.")
-    else:
-      await intr.response.send_message("You dont have permission", ephemeral=True)
-
-  # @nextcord.ui.button(label="Message", style=nextcord.ButtonStyle.secondary, emoji='2️⃣')  
-  # async def pre2(self, button: nextcord.ui.Button, intr: nextcord.Interaction):
-  #   find = await wlcm_msg.find_one({"guild": ctx.guild.id})
-  #   if intr.user.guild_permissions.manage_guild:
-  #     if find is None:
-  #       await intr.response.send_message("Welcome module is not enabled. Use /enable-welcome to enable the module!")
-  #     else:
-  #       await wlcm_msg.update_one({"guild": intr.guild.id})
-  #   else:
-  #     await intr.response.send_message("You dont have permission", ephemeral=True)
-
-  # @nextcord.ui.button(label="Message", style=nextcord.ButtonStyle.secondary, emoji='3️⃣')  
-  # async def pre3(self, button: nextcord.ui.Button, intr: nextcord.Interaction):
-  #   find = await wlcm_msg.find_one({"guild": ctx.guild.id})
-  #   if intr.user.guild_permissions.manage_guild:
-  #     if find is None:
-  #       await intr.response.send_message("Welcome module is not enabled. Use /enable-welcome to enable the module!")
-  #     else:
-  #       await wlcm_msg.update_one({"guild": intr.guild.id})
-  #   else:
-  #     await intr.response.send_message("You dont have permission", ephemeral=True)
-
-  # @nextcord.ui.button(label="Message", style=nextcord.ButtonStyle.secondary, emoji='4️⃣')  
-  # async def pre4(self, button: nextcord.ui.Button, intr: nextcord.Interaction):
-  #   find = await wlcm_msg.find_one({"guild": ctx.guild.id})
-  #   if intr.user.guild_permissions.manage_guild:
-  #     if find is None:
-  #       await intr.response.send_message("Welcome module is not enabled. Use /enable-welcome to enable the module!")
-  #     else:
-  #       await wlcm_msg.update_one({"guild": intr.guild.id})
-  #   else:
-  #     await intr.response.send_message("You dont have permission", ephemeral=True)
-
 
 class WelcomeReset(nextcord.ui.View):
   def __init__(self):
@@ -166,6 +118,7 @@ class WelcomeDropdown(nextcord.ui.Select):
 
         # Set the options that will be presented inside the dropdown
         options = [
+            nextcord.SelectOption(label='Set Default Welcome Message'),
             nextcord.SelectOption(label='Author'),
             nextcord.SelectOption(label='Author Icon'),
             nextcord.SelectOption(label='Title'),
@@ -305,6 +258,16 @@ class WelcomeDropdown(nextcord.ui.Select):
               return await interaction.channel.send(f'Sorry, time over.')
             await wlcm_msg.update_one({"guild": interaction.guild.id}, {"$set": {"message": message.content}})
             await interaction.channel.send(f"{success} | Welcome embed successfully updated.")
+      else:
+           await interaction.response.send_message("You dont have permissions", ephemeral=True)
+      if self.values[0] == 'Set Default Welcome Message':
+          find = await wlcm_msg.find_one({"guild": interaction.guild.id})
+          if interaction.user.guild_permissions.manage_guild:
+            if find is None:
+                await interaction.response.send_message("Welcome module is not enabled. Use /enable-welcome to enable the module!")
+            else:
+              await wlcm_msg.update_one({"guild": interaction.guild.id}, {"$set": {"author": '[userName]', "description": 'We are here to welcome you to our [server]\nMake sure to take your self roles and must read the rules of the server and follow them.\nWe are glad that you are here.\nMake some friends and enjoy here.', "message": 'Hey [user]', "footer": "Have a great day", "image": 'https://images-ext-2.discordapp.net/external/IqpxtrtucAQP-t9BJ_cFaElOZQ_fR02sXnqk_7Kd2Rg/https/images-ext-1.discordapp.net/external/iy22OZHR7b2ehLCND8XLt30bP99sryLfKNmnhtW6Qpg/https/images-ext-1.discordapp.net/external/Q8YY6DXMUlsu59ejC7gw5i2USSV9gpnyxNR3OSjlfz8/https/spacesprod.libertas.gg/embeds/zbmrAwzZzghBnE1625O7GPrxnwuroQgNfMtvl575.jpg'}})
+              await interaction.response.send_message(f"{success} | Welcome message updated to default.")
       else:
            await interaction.response.send_message("You dont have permissions", ephemeral=True)
 
