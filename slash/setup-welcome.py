@@ -4,6 +4,102 @@ from config import *
 from main import *
 from emoji import *
 
+class WelcomeReset(nextcord.ui.View):
+  def __init__(self):
+    super().__init__()
+
+  @nextcord.ui.button(label="Author", style=nextcord.ButtonStyle.blurple)  
+  async def btn1(self, button: nextcord.ui.Button, intr: nextcord.Interaction):
+    find = await wlcm_msg.find_one({"guild": intr.guild.id})
+    if intr.user.guild_permissions.manage_guild:
+      if find is None:
+        await intr.response.send_message("Welcome module is not enabled. Use /enable-welcome to enable the module.", ephemeral=True)
+      else:
+        await wlcm_msg.update_one({"guild": intr.guild.id}, {"$set": {"author": None}})
+        await intr.response.send_message(f"{success} | Welcome embed update successfully.")
+    else:
+      await intr.response.send_message("You dont have permission.", ephemeral=True)
+  
+  @nextcord.ui.button(label="Author Icon", style=nextcord.ButtonStyle.blurple)  
+  async def btn2(self, button: nextcord.ui.Button, intr: nextcord.Interaction):
+    find = await wlcm_msg.find_one({"guild": intr.guild.id})
+    if intr.user.guild_permissions.manage_guild:
+      if find is None:
+        await intr.response.send_message("Welcome module is not enabled. Use /enable-welcome to enable the module.", ephemeral=True)
+      else:
+        await wlcm_msg.update_one({"guild": intr.guild.id}, {"$set": {"author_icon": None}})
+        await intr.response.send_message(f"{success} | Welcome embed update successfully.")
+    else:
+      await intr.response.send_message("You dont have permission.", ephemeral=True)
+
+  @nextcord.ui.button(label="Title", style=nextcord.ButtonStyle.blurple)  
+  async def btn3(self, button: nextcord.ui.Button, intr: nextcord.Interaction):
+    find = await wlcm_msg.find_one({"guild": intr.guild.id})
+    if intr.user.guild_permissions.manage_guild:
+      if find is None:
+        await intr.response.send_message("Welcome module is not enabled. Use /enable-welcome to enable the module.", ephemeral=True)
+      else:
+        await wlcm_msg.update_one({"guild": intr.guild.id}, {"$set": {"title": None}})
+        await intr.response.send_message(f"{success} | Welcome embed update successfully.")
+    else:
+      await intr.response.send_message("You dont have permission.", ephemeral=True)
+  @nextcord.ui.button(label="Description", style=nextcord.ButtonStyle.blurple)  
+  async def btn4(self, button: nextcord.ui.Button, intr: nextcord.Interaction):
+    find = await wlcm_msg.find_one({"guild": intr.guild.id})
+    if intr.user.guild_permissions.manage_guild:
+      if find is None:
+        await intr.response.send_message("Welcome module is not enabled. Use /enable-welcome to enable the module.", ephemeral=True)
+      else:
+        await wlcm_msg.update_one({"guild": intr.guild.id}, {"$set": {"description": None}})
+        await intr.response.send_message(f"{success} | Welcome embed update successfully.")
+    else:
+      await intr.response.send_message("You dont have permission.", ephemeral=True)
+
+  @nextcord.ui.button(label="Image", style=nextcord.ButtonStyle.blurple)  
+  async def btn5(self, button: nextcord.ui.Button, intr: nextcord.Interaction):
+    find = await wlcm_msg.find_one({"guild": intr.guild.id})
+    if intr.user.guild_permissions.manage_guild:
+      if find is None:
+        await intr.response.send_message("Welcome module is not enabled. Use /enable-welcome to enable the module.", ephemeral=True)
+      else:
+        await wlcm_msg.update_one({"guild": intr.guild.id}, {"$set": {"image": None}})
+        await intr.response.send_message(f"{success} | Welcome embed update successfully.")
+    else:
+      await intr.response.send_message("You dont have permission.", ephemeral=True)
+
+  @nextcord.ui.button(label="Thumbnail", style=nextcord.ButtonStyle.blurple)  
+  async def btn6(self, button: nextcord.ui.Button, intr: nextcord.Interaction):
+    find = await wlcm_msg.find_one({"guild": intr.guild.id})
+    if intr.user.guild_permissions.manage_guild:
+      if find is None:
+        await intr.response.send_message("Welcome module is not enabled. Use /enable-welcome to enable the module.", ephemeral=True)
+      else:
+        await wlcm_msg.update_one({"guild": intr.guild.id}, {"$set": {"thumbnail": None}})
+        await intr.response.send_message(f"{success} | Welcome embed update successfully.")
+    else:
+      await intr.response.send_message("You dont have permission.", ephemeral=True)
+  @nextcord.ui.button(label="Footer", style=nextcord.ButtonStyle.blurple)  
+  async def btn7(self, button: nextcord.ui.Button, intr: nextcord.Interaction):
+    find = await wlcm_msg.find_one({"guild": intr.guild.id})
+    if intr.user.guild_permissions.manage_guild:
+      if find is None:
+        await intr.response.send_message("Welcome module is not enabled. Use /enable-welcome to enable the module.", ephemeral=True)
+      else:
+        await wlcm_msg.update_one({"guild": intr.guild.id}, {"$set": {"footer": None}})
+        await intr.response.send_message(f"{success} | Welcome embed update successfully.")
+    else:
+      await intr.response.send_message("You dont have permission.", ephemeral=True)
+  @nextcord.ui.button(label="Footer Icon", style=nextcord.ButtonStyle.blurple)  
+  async def btn8(self, button: nextcord.ui.Button, intr: nextcord.Interaction):
+    find = await wlcm_msg.find_one({"guild": intr.guild.id})
+    if intr.user.guild_permissions.manage_guild:
+      if find is None:
+        await intr.response.send_message("Welcome module is not enabled. Use /enable-welcome to enable the module.", ephemeral=True)
+      else:
+        await wlcm_msg.update_one({"guild": intr.guild.id}, {"$set": {"footer_icon": None}})
+        await intr.response.send_message(f"{success} | Welcome embed update successfully.")
+    else:
+      await intr.response.send_message("You dont have permission.", ephemeral=True)
 
 class WelcomeDropdown(nextcord.ui.Select):
     def __init__(self):
@@ -177,6 +273,16 @@ class wlcm_setup(commands.Cog):
       embed.add_field(name='Variables', value="```[user]``` Mentions the new member.\n```[userName]``` New member name without mentioning\n```[memberCount]``` Amount of members reached\n```[server]``` Server name\n```[userAvatar]``` Get url of user avatar")
       embed.set_footer(text=footer)
       await ctx.response.send_message(embed=embed, view=WelcomeView())
+
+    @commands.command(name='reset-welcome')
+    @commands.has_permissions(manage_guild=True)
+    async def reset_welcome(self, ctx):
+      await ctx.send("Which components you want to reset ?", view=WelcomeReset())
+
+    @nextcord.slash_command(name='reset-welcome', description='Reset welcome message')
+    @application_checks.has_permissions(manage_guild=True)
+    async def reset_welcome(self, ctx:nextcord.Interaction):
+      await ctx.response.send_message("Which components you want to reset ?", view=WelcomeReset())
 
 
 def setup(client):
