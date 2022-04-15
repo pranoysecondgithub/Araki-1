@@ -234,8 +234,8 @@ class Welcome(commands.Cog):
 
       if author != None:
         embed.set_author(name=author)
-      if author_icon != None:
-        embed.set_author(icon_url=f"{author_icon}")
+      # if author_icon != None:
+      #   embed.set_author(icon_url=f"{author_icon}")
       if title != None:
         embed.title=title
       if desc != None:
@@ -246,8 +246,8 @@ class Welcome(commands.Cog):
         embed.set_thumbnail(url=f"{thumbnail}")
       if footer != None:
         embed.set_footer(text=footer)
-      if footer_icon != None:
-        embed.set_footer(icon_url=f"{footer_icon}")
+      # if footer_icon != None:
+      #   embed.set_footer(icon_url=f"{footer_icon}")
       if msg != None :
         await pranoy.get_channel(channel).send(msg, embed=embed)
       else:

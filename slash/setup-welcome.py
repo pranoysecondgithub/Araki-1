@@ -134,19 +134,19 @@ class WelcomeDropdown(nextcord.ui.Select):
               return await interaction.channel.send(f'Sorry, time over.')
             await wlcm_msg.update_one({"guild": interaction.guild.id}, {"$set": {"author": author_msg.content}})
             await interaction.channel.send(f"{success} | Welcome embed successfully updated.")
-        if self.values[0] == 'Author Icon':
-          if find is None:
-            await interaction.response.send_message("Welcome module is not enabled. Please use /welcome-enable to enable the module!", ephemeral=True)
-          else:
-            await interaction.response.send_message("Please send author icon url under 60 Seconds.")
-            def is_correct(m):
-              return m.author == interaction.user
-            try:
-              author_icon = await pranoy.wait_for('message', check=is_correct, timeout=60)
-            except asyncio.TimeoutError:
-              return await interaction.channel.send(f'Sorry, time over.')
-            await wlcm_msg.update_one({"guild": interaction.guild.id}, {"$set": {"author_icon": author_icon.content}})
-            await interaction.channel.send(f"{success} | Welcome embed successfully updated.")
+        # if self.values[0] == 'Author Icon':
+        #   if find is None:
+        #     await interaction.response.send_message("Welcome module is not enabled. Please use /welcome-enable to enable the module!", ephemeral=True)
+        #   else:
+        #     await interaction.response.send_message("Please send author icon url under 60 Seconds.")
+        #     def is_correct(m):
+        #       return m.author == interaction.user
+        #     try:
+        #       author_icon = await pranoy.wait_for('message', check=is_correct, timeout=60)
+        #     except asyncio.TimeoutError:
+        #       return await interaction.channel.send(f'Sorry, time over.')
+        #     await wlcm_msg.update_one({"guild": interaction.guild.id}, {"$set": {"author_icon": author_icon.content}})
+        #     await interaction.channel.send(f"{success} | Welcome embed successfully updated.")
         if self.values[0] == 'Title':
           if find is None:
             await interaction.response.send_message("Welcome module is not enabled. Please use /welcome-enable to enable the module!", ephemeral=True)
@@ -217,19 +217,19 @@ class WelcomeDropdown(nextcord.ui.Select):
             await wlcm_msg.update_one({"guild": interaction.guild.id}, {"$set": {"footer": footer.content}})
             await interaction.channel.send(f"{success} | Welcome embed successfully updated.")
 
-        if self.values[0] == 'Footer Icon':
-          if find is None:
-            await interaction.response.send_message("Welcome module is not enabled. Please use /welcome-enable to enable the module!", ephemeral=True)
-          else:
-            await interaction.response.send_message("Please send footer icon url under 60 Seconds.")
-            def is_correct(m):
-              return m.author == interaction.user
-            try:
-              footer_icon = await pranoy.wait_for('message', check=is_correct, timeout=60)
-            except asyncio.TimeoutError:
-              return await interaction.channel.send(f'Sorry, time over.')
-            await wlcm_msg.update_one({"guild": interaction.guild.id}, {"$set": {"footer_icon": footer_icon.content}})
-            await interaction.channel.send(f"{success} | Welcome embed successfully updated.")
+        # if self.values[0] == 'Footer Icon':
+        #   if find is None:
+        #     await interaction.response.send_message("Welcome module is not enabled. Please use /welcome-enable to enable the module!", ephemeral=True)
+        #   else:
+        #     await interaction.response.send_message("Please send footer icon url under 60 Seconds.")
+        #     def is_correct(m):
+        #       return m.author == interaction.user
+        #     try:
+        #       footer_icon = await pranoy.wait_for('message', check=is_correct, timeout=60)
+        #     except asyncio.TimeoutError:
+        #       return await interaction.channel.send(f'Sorry, time over.')
+        #     await wlcm_msg.update_one({"guild": interaction.guild.id}, {"$set": {"footer_icon": footer_icon.content}})
+        #     await interaction.channel.send(f"{success} | Welcome embed successfully updated.")
 
         if self.values[0] == 'Message':
           if find is None:
@@ -262,7 +262,7 @@ class wlcm_setup(commands.Cog):
     @commands.has_permissions(manage_guild=True)
     async def setup_welcome(self, ctx):
       embed = nextcord.Embed(title='Welcome Setup', description='Well these are the few steps that you can setup welcome easyly.', colour=clr)
-      embed.add_field(name='Variables', value="``[user]``` Mentions the new member.\n```[userName]``` New member name without mentioning\n```[memberCount]``` Amount of members reached\n```[server]``` Server name\n```[userAvatar]``` Get url of user avatar")
+      embed.add_field(name='Variables', value="``[user]``` Mentions the new member.\n```[userName]``` New member name without mentioning\n```[memberCount]``` Amount of members reached\n```[server]``` Server name\n")
       embed.set_footer(text=footer)
       await ctx.send(embed=embed, view=WelcomeView())
 
@@ -270,7 +270,7 @@ class wlcm_setup(commands.Cog):
     @application_checks.has_permissions(manage_guild=True)
     async def setup_welcomeS(self, ctx:nextcord.Interaction):
       embed = nextcord.Embed(title='Welcome Setup', description='Well these are the few steps that you can setup welcome easyly.', colour=clr)
-      embed.add_field(name='Variables', value="```[user]``` Mentions the new member.\n```[userName]``` New member name without mentioning\n```[memberCount]``` Amount of members reached\n```[server]``` Server name\n```[userAvatar]``` Get url of user avatar")
+      embed.add_field(name='Variables', value="```[user]``` Mentions the new member.\n```[userName]``` New member name without mentioning\n```[memberCount]``` Amount of members reached\n```[server]``` Server name\n")
       embed.set_footer(text=footer)
       await ctx.response.send_message(embed=embed, view=WelcomeView())
 
@@ -391,8 +391,6 @@ class wlcm_setup(commands.Cog):
 
         if author != None:
           embed.set_author(name=author)
-        if author_icon != None:
-          embed.set_author(icon_url=f"{author_icon}")
         if title != None:
           embed.title=title
         if desc != None:
@@ -403,8 +401,6 @@ class wlcm_setup(commands.Cog):
           embed.set_thumbnail(url=f"{thumbnail}")
         if footer != None:
           embed.set_footer(text=footer)
-        if footer_icon != None:
-          embed.set_footer(icon_url=f"{footer_icon}")
         if msg != None :
           await pranoy.get_channel(channel).send(msg, embed=embed)
         else:
