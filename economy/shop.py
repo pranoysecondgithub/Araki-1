@@ -19,7 +19,7 @@ class Shop(commands.Cog):
         embed.add_field(name=f":cookie: Cookie -- 50000 | {arency}", value=f"To buy this item type ```{prefix}buy cookie```")
         embed.add_field(name=f":rose: Rose -- 70000 | {arency}", value=f"To buy this item type ```{prefix}buy rose```")
         embed.add_field(name=f":pizza: Pizza -- 100000 | {arency}", value=f"To buy this item type ```{prefix}buy pizza```")
-        embed.add_field(name=f"<:frequentcirclet:949535577806626836> Frequent Circlet -- 1000000 | {arency}", value=f"To buy this item type ```{prefix}buy frequent```")
+        embed.add_field(name=f":ring: Frequent Circlet -- 1000000 | {arency}", value=f"To buy this item type ```{prefix}buy frequent```")
         await ctx.send(embed=embed)
 
     @nextcord.slash_command(name='shop', description='View the shop')
@@ -34,7 +34,7 @@ class Shop(commands.Cog):
         embed.add_field(name=f":cookie: Cookie -- 50000 | {arency}", value=f"To buy this item type ```{prefix}buy cookie```")
         embed.add_field(name=f":rose: Rose -- 70000 | {arency}", value=f"To buy this item type ```{prefix}buy rose```")
         embed.add_field(name=f":pizza: Pizza -- 100000 | {arency}", value=f"To buy this item type ```{prefix}buy pizza```")
-        embed.add_field(name=f"<:frequentcirclet:949535577806626836> Frequent Circlet -- 1000000 | {arency}", value=f"To buy this item type ```{prefix}buy frequent```")
+        embed.add_field(name=f":ring: Frequent Circlet -- 1000000 | {arency}", value=f"To buy this item type ```{prefix}buy frequent```")
         await ctx.response.send_message(embed=embed)
     
     @commands.command()
