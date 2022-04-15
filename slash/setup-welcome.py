@@ -276,7 +276,7 @@ class wlcm_setup(commands.Cog):
 
     @commands.command(name='reset-welcome')
     @commands.has_permissions(manage_guild=True)
-    async def reset_welcome(self, ctx):
+    async def reset_welcomeS(self, ctx):
       await ctx.send("Which components you want to reset ?", view=WelcomeReset())
 
     @nextcord.slash_command(name='reset-welcome', description='Reset welcome message')
