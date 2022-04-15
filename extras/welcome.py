@@ -146,7 +146,7 @@ class Welcome(commands.Cog):
       return
     else:
       author = find_msg['author']
-      author_icon = find_msg['author_icon']
+      # author_icon = find_msg['author_icon']
       title = find_msg['title']
       desc = find_msg['description']
       image = find_msg['image']
@@ -206,15 +206,15 @@ class Welcome(commands.Cog):
           msg = msg.replace('[server]', member.guild.name)
 
       # images
-      if author_icon != '' and author_icon != None:
-        if '[avatar]' in avatar_icon:
-          avatar_icon = avatar_icon.replace('[avatar]', member.avatar.url)
+      # if author_icon != '' and author_icon != None:
+      #   if '[avatar]' in avatar_icon:
+      #     avatar_icon = avatar_icon.replace('[avatar]', member.avatar.url)
       if thumbnail != '' and thumbnail != None:
         if '[avatar]' in thumbnail:
           thumbnail = thumbnail.replace('[avatar]', member.avatar.url)
-      if footer_icon != '' and footer_icon != None:
-        if '[avatar]' in footer_icon:
-          footer_icon = footer_icon.replace('[avatar]', member.avatar.url)
+      # if footer_icon != '' and footer_icon != None:
+      #   if '[avatar]' in footer_icon:
+      #     footer_icon = footer_icon.replace('[avatar]', member.avatar.url)
       if image != '' and image != None:
         if '[avatar]' in image:
           image = image.replace('[avatar]', member.avatar.url)
