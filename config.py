@@ -1,10 +1,10 @@
 TOKEN="OTUwNjgwMjkwMTgxOTEwNTI4.YiccAw.oRycBCo2GMJIzxIQx5QyEMNb0RI"
 OWNERS=['943571992722944041']
-support_link = "https://discord.gg/emtBUzxMtF"
-invite_link = "https://discord.com/oauth2/authorize?client_id=950680290181910528&permissions=8&scope=applications.commands%20bot"
+support_link = "https://araki.social/support"
+invite_link = "https://araki.social/invite"
 footer = "Made by Pranoy#0140"
 dbl_vote = "https://discordbotlist.com/bots/araki/upvote"
-topgg = "https://top.gg/bot/950680290181910528/vote"
+topgg = "https://araki.social/vote"
 import nextcord, motor, json, asyncio, random
 from nextcord.ext import commands
 from motor.motor_asyncio import AsyncIOMotorClient
