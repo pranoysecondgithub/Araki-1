@@ -1,4 +1,4 @@
-TOKEN="OTUwNjgwMjkwMTgxOTEwNTI4.YiccAw.oRycBCo2GMJIzxIQx5QyEMNb0RI"
+TOKEN=""
 OWNERS=['943571992722944041']
 support_link = "https://araki.social/support"
 invite_link = "https://araki.social/invite"
